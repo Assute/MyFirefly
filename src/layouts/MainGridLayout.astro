@@ -73,6 +73,7 @@ const {
 // 检查背景壁纸模式和是否允许切换
 const isBannerMode = backgroundWallpaper.mode === "banner";
 const isOverlayMode = backgroundWallpaper.mode === "overlay";
+const isNoneMode = backgroundWallpaper.mode === "none";
 const isBackgroundEnabled = backgroundWallpaper.mode !== "none";
 const isWallpaperSwitchable = backgroundWallpaper.switchable ?? true;
 
@@ -275,8 +276,21 @@ const mobileQuality = Math.round(configQuality * 0.9);
 
 <!-- Navbar -->
 <slot slot="head" name="head"></slot>
-<div id="top-row" class="z-50 pointer-events-none relative transition-all duration-700 mx-auto" class:list={[navbarWidthFull ? "" : "max-w-(--page-width) px-0 md:px-4"]}>
-    <div id="navbar-wrapper" class="pointer-events-auto sticky top-0 transition-all">
+<div
+	id="top-row"
+	class:list={[
+		"pointer-events-none z-50 relative transition-all duration-700 mx-auto",
+		isNoneMode ? "h-18" : "",
+		navbarWidthFull ? "" : "max-w-(--page-width) px-0 md:px-4",
+	]}
+>
+    <div
+		id="navbar-wrapper"
+		class:list={[
+			"pointer-events-auto transition-all",
+			isNoneMode ? "fixed top-0 left-0 right-0 z-[80]" : "sticky top-0",
+		]}
+	>
         <Navbar></Navbar>
     </div>
 </div>

@@ -570,6 +570,39 @@ const siteLang = lang.replace("_", "-");
     .navbar-hidden {
       @apply opacity-0 -translate-y-16;
     }
+
+    html[data-wallpaper-mode="none"] #top-row,
+    body.no-banner-layout #top-row {
+      position: relative !important;
+      height: 4.5rem !important;
+    }
+
+    html[data-wallpaper-mode="none"] #navbar-wrapper,
+    body.no-banner-layout #navbar-wrapper {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      z-index: 80 !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+
+    html[data-wallpaper-mode="none"] #navbar-wrapper.navbar-hidden,
+    body.no-banner-layout #navbar-wrapper.navbar-hidden {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+
+    html[data-wallpaper-mode="none"] #sidebar-sticky,
+    html[data-wallpaper-mode="none"] #left-sidebar-sticky,
+    html[data-wallpaper-mode="none"] #right-sidebar-sticky,
+    body.no-banner-layout #sidebar-sticky,
+    body.no-banner-layout #left-sidebar-sticky,
+    body.no-banner-layout #right-sidebar-sticky {
+      top: 5.5rem !important;
+    }
+
   }
 
   @media (max-width: 1023px) {
@@ -760,15 +793,10 @@ function disableAnimation() {
         document.documentElement.classList.add("is-page-transitioning");
       }
 
-      // 简化navbar处理逻辑
-      if (bannerEnabled) {
-        const navbar = document.getElementById("navbar-wrapper");
-        if (navbar) {
-          const threshold = window.innerHeight * (BANNER_HEIGHT_HOME / 100) - 88;
-          if (document.documentElement.scrollTop >= threshold) {
-            navbar.classList.add("navbar-hidden");
-          }
-        }
+      // 保持导航栏始终可见
+      const navbar = document.getElementById("navbar-wrapper");
+      if (navbar) {
+        navbar.classList.remove("navbar-hidden");
       }
     });
     window.swup.hooks.on("content:replace", () => {
@@ -1062,15 +1090,9 @@ function disableAnimation() {
       });
     }
 
-    if (bannerEnabled && navbar) {
+    if (navbar) {
       operations.push(() => {
-        const threshold = window.innerHeight * (BANNER_HEIGHT_HOME / 100) - 88;
-
-        if (scrollTop >= threshold) {
-          navbar.classList.add("navbar-hidden");
-        } else {
-          navbar.classList.remove("navbar-hidden");
-        }
+        navbar.classList.remove("navbar-hidden");
       });
     }
 
