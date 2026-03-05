@@ -38,8 +38,14 @@ import { remarkImageGrid } from "./src/plugins/remark-image-grid.js";
 export default defineConfig({
 	site: siteConfig.site_url,
 
-	base: "/",
+	base: "/MyFirefly/",
 	trailingSlash: "always",
+	server: {
+		port: 4321,
+	},
+	preview: {
+		port: 4321,
+	},
 
 	// 图像优化配置
 	image: {

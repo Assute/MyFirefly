@@ -223,6 +223,7 @@ const siteLang = lang.replace("_", "-");
         BANNER_HEIGHT_EXTEND,
         PAGE_WIDTH,
         configHue,
+        isThemeColorFixed: siteConfig.themeColor.fixed ?? false,
         defaultMode: siteConfig.themeColor.defaultMode ?? "light",
         defaultWallpaperMode: backgroundWallpaper.mode,
         isWallpaperSwitchable:
@@ -272,8 +273,13 @@ const siteLang = lang.replace("_", "-");
         isDark ? darkTheme : lightTheme
       );
 
-      // Load the hue from local storage
-      const hue = localStorage.getItem("hue") || configHue;
+      // Load the hue from config or local storage
+      const hue = isThemeColorFixed
+        ? String(configHue)
+        : (localStorage.getItem("hue") || String(configHue));
+      if (isThemeColorFixed) {
+        localStorage.removeItem("hue");
+      }
       document.documentElement.style.setProperty("--hue", hue);
 
       // 设置卡片透明度（全屏透明模式下使用）
