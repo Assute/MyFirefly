@@ -13,7 +13,7 @@ export const siteConfig: SiteConfig = {
 	subtitle: "Demo site",
 
 	// 站点 URL
-	site_url: "https://assute.github.io",
+	site_url: "https://ff.yoyoiu.com",
 
 	// 站点描述
 	description:
