@@ -16,9 +16,7 @@ draft: false
 
 快速了解工具的使用方法，请观看视频教程：
 
-<div style="margin: 20px 0; width: 100%; max-width: 800px;">
-  <iframe src="https://player.bilibili.com/player.html?bvid=BV1TmABz1E3v&page=1" width="100%" height="600" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
-</div>
+<iframe width="100%" height="468" src="//player.bilibili.com/player.html?bvid=BV1TmABz1E3v&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 
 ## 一、功能特点
 
