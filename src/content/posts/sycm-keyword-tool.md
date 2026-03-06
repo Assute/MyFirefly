@@ -1,5 +1,5 @@
 ---
-title: 开源分享｜生意参谋关键词批量采集工具，一键提取全类目搜索词
+title: 电商工具分享｜生意参谋关键词批量采集工具，一键提取全类目搜索词
 published: 2026-03-06T11:00:00+08:00
 description: 一款基于 Selenium 和 tkinter 开发的生意参谋关键词批量采集工具，支持多级类目遍历、自动翻页、关键词筛选，并导出 Excel。
 image: "https://upload-bbs.miyoushe.com/upload/2026/02/27/363490070/ee1449fab1587b2e52eefa57d0c64cab_2930314401295044254.jpeg"
