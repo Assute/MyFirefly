@@ -243,7 +243,7 @@ const relatedPosts = await getRelatedPosts(entry, 5);
       <!-- always show cover as long as it has one -->
 
       {
-        processedImage && coverImageConfig.enableInPost && (
+        false && processedImage && coverImageConfig.enableInPost && (
           <div style="margin-top:1rem;">
             <CoverImage
               id="post-cover"
