@@ -87,6 +87,10 @@ export async function getCategoryList(): Promise<Category[]> {
 	const allBlogPosts = await getCollection<"posts">("posts", ({ data }) => {
 		return import.meta.env.PROD ? data.draft !== true : true;
 	});
+	const trailingCategories = new Map([
+		["文章示例", 1],
+		["博客指南", 2],
+	]);
 	const count: { [key: string]: number } = {};
 	allBlogPosts.forEach((post: { data: { category: string | null } }) => {
 		if (!post.data.category) {
@@ -104,6 +108,15 @@ export async function getCategoryList(): Promise<Category[]> {
 	});
 
 	const lst = Object.keys(count).sort((a, b) => {
+		const trailingOrderA = trailingCategories.get(a) ?? 0;
+		const trailingOrderB = trailingCategories.get(b) ?? 0;
+
+		if (trailingOrderA || trailingOrderB) {
+			if (!trailingOrderA) return -1;
+			if (!trailingOrderB) return 1;
+			return trailingOrderA - trailingOrderB;
+		}
+
 		return (
 			count[b] - count[a] || a.toLowerCase().localeCompare(b.toLowerCase())
 		);
