@@ -1,7 +1,23 @@
 import { siteConfig } from "../config";
 
-export function formatDateToYYYYMMDD(date: Date): string {
-	return date.toISOString().substring(0, 10);
+export function formatDateToYYYYMMDD(dateInput: Date | string): string {
+	const date = typeof dateInput === "string" ? new Date(dateInput) : dateInput;
+
+	const options: Intl.DateTimeFormatOptions = {
+		year: "numeric",
+		month: "2-digit",
+		day: "2-digit",
+	};
+
+	if (siteConfig.timezone) {
+		options.timeZone = siteConfig.timezone;
+	}
+
+	const parts = new Intl.DateTimeFormat("en-CA", options).formatToParts(date);
+	const get = (type: Intl.DateTimeFormatPartTypes) =>
+		parts.find((p) => p.type === type)?.value || "";
+
+	return `${get("year")}-${get("month")}-${get("day")}`;
 }
 
 // 国际化日期格式化函数
