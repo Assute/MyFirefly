@@ -198,7 +198,7 @@ $effect(() => {
 </script>
 
 {#if hasAnyContent}
-<div id="display-setting" class="float-panel float-panel-closed absolute transition-all w-80 right-4 px-4 py-2">
+<div id="display-setting" class="hidden lg:block float-panel float-panel-closed absolute transition-all w-80 right-4 px-4 py-2">
     <!-- Theme Color Section -->
     {#if showThemeColor}
     <div class="mt-2 mb-2">
