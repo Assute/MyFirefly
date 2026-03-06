@@ -1,4 +1,4 @@
-import type { SiteConfig } from "@/types/config";
+﻿import type { SiteConfig } from "@/types/config";
 import { fontConfig } from "./fontConfig";
 
 // 定义站点语言
@@ -7,10 +7,10 @@ const SITE_LANG = "zh_CN";
 
 export const siteConfig: SiteConfig = {
 	// 站点标题
-	title: "Firefly",
+	title: "Assute",
 
 	// 站点副标题
-	subtitle: "Demo site",
+	subtitle: "Blog",
 
 	// 站点 URL
 	site_url: "https://ff.yoyoiu.com",
@@ -77,7 +77,7 @@ export const siteConfig: SiteConfig = {
 			alt: "🍀",
 		},
 		// 导航栏标题
-		title: "Firefly",
+		title: "Assute",
 		// 全宽导航栏，导航栏是否占满屏幕宽度，true：占满，false：不占满
 		widthFull: false,
 		// 导航栏图标和标题是否跟随主题色
@@ -190,3 +190,7 @@ export const siteConfig: SiteConfig = {
 	// 站点语言，在本配置文件顶部SITE_LANG定义
 	lang: SITE_LANG,
 };
+
+
+
+
