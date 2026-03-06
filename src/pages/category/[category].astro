@@ -1,0 +1,32 @@
+---
+import type { GetStaticPaths } from "astro";
+import PostPage from "@/components/layout/PostPage.astro";
+import MainGridLayout from "@/layouts/MainGridLayout.astro";
+import { getSortedPosts } from "@/utils/content-utils";
+
+export const getStaticPaths = (async () => {
+  const posts = await getSortedPosts();
+  const categories = Array.from(
+    new Set(
+      posts
+        .map((post) => (typeof post.data.category === "string" ? post.data.category.trim() : ""))
+        .filter(Boolean),
+    ),
+  );
+
+  return categories.map((category) => ({
+    params: { category },
+    props: {
+      category,
+      posts: posts.filter((post) => (post.data.category || "").trim() === category),
+    },
+  }));
+}) satisfies GetStaticPaths;
+
+const { category, posts } = Astro.props;
+const page = { data: posts };
+---
+
+<MainGridLayout title={category}>
+  <PostPage page={page} />
+</MainGridLayout>

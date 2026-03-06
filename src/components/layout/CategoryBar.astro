@@ -8,10 +8,11 @@ import { url } from "@/utils/url-utils";
 const categories = await getCategoryList();
 const totalPosts = (await getSortedPostsList()).length;
 const homeUrl = url("/");
-const archiveUrl = url("/archive/");
+const archiveUrl = url('/archive/');
+const categoryBaseUrl = url('/category/');
 ---
 
-<div class="card-base category-bar p-3 onload-animation" id="category-bar" data-home-path={homeUrl} data-archive-path={archiveUrl}>
+<div class="card-base category-bar p-3 onload-animation" id="category-bar" data-home-path={homeUrl} data-archive-path={archiveUrl} data-category-base-path={categoryBaseUrl}>
   <div class="category-bar-inner flex gap-2">
     <a
       href={homeUrl}
@@ -130,23 +131,27 @@ const archiveUrl = url("/archive/");
     const pathname = window.location.pathname.replace(/\/$/, "");
     const homePath = (bar.getAttribute("data-home-path") || "/").replace(/\/$/, "");
     const archivePath = (bar.getAttribute("data-archive-path") || "/archive").replace(/\/$/, "");
+    const categoryBasePath = (bar.getAttribute("data-category-base-path") || "/category/").replace(/\/$/, "");
     const isHome = pathname === homePath || pathname === "" || pathname === "/";
     const isArchive = pathname === archivePath;
+    const isCategoryPage = pathname.startsWith(`${categoryBasePath}/`);
 
-    // 只在首页和归档页显示
-    if (!isHome && !isArchive) {
+    // 鍙湪棣栭〉銆佸綊妗ｉ〉銆佸垎绫婚〉鏄剧ず
+    if (!isHome && !isArchive && !isCategoryPage) {
       bar.style.display = "none";
       return;
     }
     bar.style.display = "";
 
-    // 高亮当前分类
-    const pills = bar.querySelectorAll<HTMLAnchorElement>(".category-pill");
+    // 妤傛ü瀵掕ぐ鎾冲閸掑棛琚?
     const params = new URLSearchParams(window.location.search);
-    const activeCategory = params.get("category") || "";
+    const pills = bar.querySelectorAll<HTMLAnchorElement>(".category-pill");
+    const pathSegments = window.location.pathname.split("/").filter(Boolean);
+    const activeCategory = isCategoryPage
+      ? decodeURIComponent(pathSegments[pathSegments.length - 1] || "")
+      : (params.get("category") || "");
     const hasTag = params.has("tag");
     const hasUncategorized = params.has("uncategorized");
-
     pills.forEach((pill) => pill.removeAttribute("data-active"));
 
     if (isHome) {
@@ -163,7 +168,7 @@ const archiveUrl = url("/archive/");
         ?.setAttribute("data-active", "");
     }
 
-    // 自动滚动到当前高亮的分类
+    // 閼奉亜濮╁姘З閸掓澘缍嬮崜宥夌彯娴滎喚娈戦崚鍡欒
     const activePill = bar.querySelector<HTMLAnchorElement>('.category-pill[data-active]');
     const scroll = bar.querySelector<HTMLElement>(".category-scroll");
     if (activePill && scroll) {
@@ -171,7 +176,7 @@ const archiveUrl = url("/archive/");
       scroll.scrollTo({ left: Math.max(0, scrollLeft), behavior: "smooth" });
     }
 
-    // 更新横幅标题：归档页有分类筛选时显示分类名
+    // 閺囧瓨鏌婂Ο顏勭畽閺嶅洭顣介敍姘秺濡楋綁銆夐張澶婂瀻缁崵鐡柅澶嬫閺勫墽銇氶崚鍡欒閸?
     if (isArchive && activeCategory) {
       const bannerTitle = document.querySelector(".banner-page-title-text");
       if (bannerTitle) {
@@ -187,14 +192,14 @@ const archiveUrl = url("/archive/");
     const scroll = bar.querySelector<HTMLElement>(".category-scroll");
     if (!scroll) return;
 
-    // 鼠标滚轮横向滚动
+    // 姒х姵鐖ｅ姘崇枂濡亜鎮滃姘З
     scroll.addEventListener("wheel", (e) => {
       if (scroll.scrollWidth <= scroll.clientWidth) return;
       e.preventDefault();
       scroll.scrollLeft += e.deltaY;
     }, { passive: false });
 
-    // 监听滚动更新提示图标
+    // 閻╂垵鎯夊姘З閺囧瓨鏌婇幓鎰仛閸ョ偓鐖?
     scroll.addEventListener("scroll", updateScrollHint);
     window.addEventListener("resize", updateScrollHint);
     updateScrollHint();
