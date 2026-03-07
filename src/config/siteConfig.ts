@@ -13,7 +13,7 @@ export const siteConfig: SiteConfig = {
 	subtitle: "Blog",
 
 	// 站点 URL
-	site_url: "https://ff.yoyoiu.com",
+	site_url: "https://yoyoiu.com",
 
 	// 站点描述
 	description:
