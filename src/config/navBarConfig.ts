@@ -23,12 +23,8 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 
 	links.push({
 		name: "关于",
-		url: "/content/",
+		url: "/about/",
 		icon: "material-symbols:info",
-		children: [
-			...(siteConfig.pages.sponsor ? [LinkPreset.Sponsor] : []),
-			LinkPreset.About,
-		],
 	});
 
 	links.push({
