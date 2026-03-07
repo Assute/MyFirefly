@@ -26,24 +26,26 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		url: "/about/",
 		icon: "material-symbols:info",
 	});
+	links.push({
+		name: "GitHub",
+		url: "https://github.com/Assute",
+		external: true,
+		showExternalIcon: false,
+		icon: "fa7-brands:github",
+	});
 
+	links.push({
+		name: "Gitee",
+		url: "https://gitee.com/Assute",
+		external: true,
+		showExternalIcon: false,
+		icon: "fa7-brands:gitee",
+	});
 	links.push({
 		name: "链接",
 		url: "/links/",
 		icon: "material-symbols:link",
 		children: [
-			{
-				name: "GitHub",
-				url: "https://github.com/Assute",
-				external: true,
-				icon: "fa7-brands:github",
-			},
-			{
-				name: "Gitee",
-				url: "https://gitee.com/Assute",
-				external: true,
-				icon: "fa7-brands:gitee",
-			},
 			...(siteConfig.pages.bangumi
 				? [{
 					name: "番组计划",
