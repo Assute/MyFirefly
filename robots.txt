@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /_astro/
 
-Sitemap: https://ff.yoyoiu.com/sitemap-index.xml
+Sitemap: https://yoyoiu.com/sitemap-index.xml
