@@ -91,8 +91,8 @@
 
 如果你想交流项目、脚本、网站、软件工具或者 AI 应用，欢迎来找我。
 
-- 💻 **GitHub**: [Assute](https://github.com/Assute)
-- ✉️ **Email**: [xiaye@msn.com](mailto:xiaye@msn.com)
+- 💻 **GitHub**: <https://github.com/Assute>
+- 🧩 **Gitee**: <https://gitee.com/Assute>
 
 ---
 

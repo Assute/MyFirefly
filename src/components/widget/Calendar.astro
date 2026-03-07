@@ -263,7 +263,7 @@ const postUrlPrefix = url("/posts/");
           data-has-post="${hasPost}"
         >
           ${day || ''}
-          ${hasPost ? '<span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-(--primary)"></span>' : ''}
+          ${hasPost ? '<span class="calendar-day-dot absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-(--primary)"></span>' : ''}
           ${hasPost && count > 1 ? `<span class="absolute top-0 right-0 text-[10px] text-(--primary) font-bold">${count}</span>` : ''}
         </div>
       `;
@@ -516,4 +516,5 @@ const postUrlPrefix = url("/posts/");
   :global(.calendar-day-today.calendar-day-selected) {
     box-shadow: inset 0 0 0 2px var(--primary);
   }
+
 </style>

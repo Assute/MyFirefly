@@ -123,9 +123,10 @@ export const siteConfig: SiteConfig = {
 	// bangumi的数据为编译时获取的，所以不是实时数据，请配置bangumi.userId
 	pages: {
 		// 赞助页面开关
-		sponsor: true,
+		sponsor: false,
 		// 留言板页面开关，需要配置评论系统
-		guestbook: true,
+		guestbook: false,
+		friends: false,
 		// 番组计划页面开关，含追番、游戏、书籍和音乐，dev调试时只获取一页数据，build才会获取全部数据
 		bangumi: true,
 		// 相册页面开关
@@ -190,7 +191,6 @@ export const siteConfig: SiteConfig = {
 	// 站点语言，在本配置文件顶部SITE_LANG定义
 	lang: SITE_LANG,
 };
-
 
 
 

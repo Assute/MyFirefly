@@ -3,10 +3,14 @@ import { getEntry, render } from "astro:content";
 import Comment from "@components/comment/index.astro";
 import Markdown from "@components/common/Markdown.astro";
 import { Icon } from "astro-icon/components";
-import { friendsPageConfig, getEnabledFriends } from "@/config";
+import { friendsPageConfig, getEnabledFriends, siteConfig } from "@/config";
 import I18nKey from "@/i18n/i18nKey";
 import { i18n } from "@/i18n/translation";
 import MainGridLayout from "@/layouts/MainGridLayout.astro";
+
+if (!siteConfig.pages.friends) {
+	return Astro.redirect("/404/");
+}
 
 const friendsPost = await getEntry("spec", "friends");
 
