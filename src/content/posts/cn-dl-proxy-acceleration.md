@@ -4,7 +4,7 @@ published: 2026-03-06T18:55:17+08:00
 description: 一篇可直接落地的完整安装教程，教你通过 CN 中继和 DL 上游，让无法直连海外资源的国内服务器稳定访问 GitHub 等站点。
 image: "https://pic.sl.al/gdrive/pic/2026-03-06/fileid_1IKMO3nCtGrAzi6G6Ktjl1TGAyk1AdGdP_image.png"
 tags: [服务器, 脚本]
-category: 服务器
+category: 脚本
 draft: false
 ---
 
