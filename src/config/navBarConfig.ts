@@ -13,7 +13,9 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		LinkPreset.Archive,
 	];
 
-	links.push(LinkPreset.Friends);
+	if (siteConfig.pages.friends) {
+		links.push(LinkPreset.Friends);
+	}
 
 	if (siteConfig.pages.guestbook) {
 		links.push(LinkPreset.Guestbook);
