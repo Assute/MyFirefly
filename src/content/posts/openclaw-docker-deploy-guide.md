@@ -6,7 +6,7 @@ image: "https://raw.githubusercontent.com/1186258278/OpenClawChineseTranslation/
 tags: [AI, 教程, OpenClaw, Docker]
 category: AI
 draft: false
-pinned: true
+pinned: false
 sourceLink: "https://github.com/1186258278/OpenClawChineseTranslation"
 ---
 
