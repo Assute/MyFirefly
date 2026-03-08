@@ -1,4 +1,4 @@
-import {
+﻿import {
 	LinkPreset,
 	type NavBarConfig,
 	type NavBarLink,
@@ -48,12 +48,20 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		children: [
 			...(siteConfig.pages.bangumi
 				? [{
-					name: "番组计划",
-					url: "/bangumi/",
+					name: "影视计划",
+					url: "https://www.ncat22.com/",
+					external: true,
 					icon: "material-symbols:movie",
 					showExternalIcon: true,
 				}]
 				: []),
+			{
+				name: "简约图床",
+				url: "https://pic.sl.al/",
+				external: true,
+				icon: "material-symbols:image",
+				showExternalIcon: true,
+			},
 		],
 	});
 
@@ -65,3 +73,5 @@ export const navBarSearchConfig: NavBarSearchConfig = {
 };
 
 export const navBarConfig: NavBarConfig = getDynamicNavBarConfig();
+
+
