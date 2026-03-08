@@ -42,9 +42,11 @@ export default defineConfig({
 	trailingSlash: "always",
 	server: {
 		port: 4321,
+		host: true,
 	},
 	preview: {
 		port: 4321,
+		host: true,
 	},
 
 	// 图像优化配置

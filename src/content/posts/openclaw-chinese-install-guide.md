@@ -1,9 +1,9 @@
 ---
 title: OpenClaw 汉化版 npm 安装、卸载与升级教程
 published: 2026-03-07T15:45:00+08:00
-description: 基于 OpenClawChineseTranslation 官方 README 和安装指南整理的一篇 npm 教程，涵盖安装、初始化、启动、重启、卸载和升级。
-image: "https://raw.githubusercontent.com/1186258278/OpenClawChineseTranslation/main/docs/image/5.png"
-tags: [AI, 教程, OpenClaw]
+description: 基于 OpenClawChineseTranslation 官方 README 和安装指南整理的一篇详细图文教程，涵盖安装、初始化、Telegram 机器人配置、中文用户名问题修复、启动、重启、卸载和升级。
+image: "https://pic.sl.al/gdrive/pic/2026-03-08/fileid_1KaZ53YaT5E8Z3Ham7BkQkEjkmgJxJ2b8_%E5%88%9D%E5%A7%8B%E5%8C%96.png"
+tags: [AI, 教程, OpenClaw, 图文教程]
 category: AI
 draft: false
 pinned: true
@@ -22,6 +22,12 @@ Node.js >= 22.12.0
 
 如果你还没有安装 Node.js，可以按你的系统选择下面一种方式。
 
+### Windows
+
+访问 [Node.js 官网下载页面](https://nodejs.org/zh-cn/download) 下载 LTS 版本安装包并安装。
+
+![Node.js下载](https://pic.sl.al/gdrive/pic/2026-03-08/fileid_1ZwFYqdJGBI36tKozh3n7HQfzUKyTlHKv_image.png)
+
 ### Ubuntu / Debian
 
 ```bash
@@ -36,22 +42,12 @@ curl -fsSL https://rpm.nodesource.com/setup_22.x | sudo bash -
 sudo yum install -y nodejs
 ```
 
-### 通用 nvm 方式
-
-```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
-nvm install 22
-nvm use 22
-```
-
 ### 安装完成后检查版本
 
 ```bash
 node -v
 npm -v
 ```
-
-如果版本满足要求，就可以继续下一步。
 
 ---
 
@@ -69,215 +65,186 @@ npm install -g @qingchencloud/openclaw-zh@latest
 npm install -g @qingchencloud/openclaw-zh@latest --registry=https://registry.npmmirror.com
 ```
 
-安装完成后，先检查是否安装成功：
-
-```bash
-openclaw --version
-openclaw --help
-```
-
-如果这里提示：
-
-```text
-openclaw: command not found
-```
-
-按官方安装指南处理：
-
-```bash
-npm prefix -g
-export PATH="$(npm prefix -g)/bin:$PATH"
-```
-
-然后把这个路径写进你的 `~/.bashrc` 或 `~/.zshrc`。
+![npm安装](https://pic.sl.al/gdrive/pic/2026-03-08/fileid_1qT29nHHnApuS1C9w7gsnOUAL0aXOO2bQ_npm%E5%AE%89%E8%A3%85.png)
 
 ---
 
-## 三、初始化配置
+## 三、初始化配置（图文详解）
 
-### 方式一：交互式向导
-
-第一次使用，最推荐直接运行：
+运行初始化命令：
 
 ```bash
 openclaw onboard --install-daemon
 ```
 
-这个命令会带你完成初始化流程，包括：
+按照界面提示依次完成以下步骤：
 
-- 确认安全风险
-- 选择 AI 模型提供商
-- 输入 API Key
-- 选择默认模型
-- 配置网关
-- 配置聊天通道
-- 安装技能
+**初始化配置选择 yes**
 
-如果你只想跑基础向导，也可以用：
+![初始化配置选择yes](https://pic.sl.al/gdrive/pic/2026-03-08/fileid_1KaZ53YaT5E8Z3Ham7BkQkEjkmgJxJ2b8_%E5%88%9D%E5%A7%8B%E5%8C%96.png)
 
-```bash
-openclaw onboard
-```
+**选择快速开始**
 
-### 方式二：手动设置
+![选择快速开始](https://pic.sl.al/gdrive/pic/2026-03-08/fileid_1tKVfo9oPBi9D9lw8xjfq8-b_5zgk18PW_%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B.png)
 
-如果你已经知道自己要用什么模型，也可以直接按官方安装指南手动设置：
+**选择模型提供商（自建选择自定义）**
 
-```bash
-openclaw setup
-openclaw config set gateway.mode local
-openclaw config set agents.defaults.model anthropic/claude-sonnet-4-20250514
-openclaw config set auth.anthropic.apiKey sk-ant-你的API密钥
-openclaw config set gateway.auth.token 你设定的密码
-```
+![选择模型提供商](https://pic.sl.al/gdrive/pic/2026-03-08/fileid_1H_za-Dv1Q-jSsOmWt0EYgDr4G37vN5ii_%E6%A8%A1%E5%9E%8B%E6%8F%90%E4%BE%9B%E5%95%86.png)
+
+**输入 URL、选择密钥、输入令牌回车**
+
+![输入URL、选择密钥、输入令牌](https://pic.sl.al/gdrive/pic/2026-03-08/fileid_1hC59lj2hzVG7pmpRrOdHzV8k0V0ELpcp_%E5%A1%AB%E5%86%99.png)
+
+**再回车，输入模型名称（如 gpt-5.4）回车**
+
+![输入模型名称](https://pic.sl.al/gdrive/pic/2026-03-08/fileid_101pKwXyG75G7IqQ5tH9eG9blkN2J_sZ3_%E6%A8%A1%E5%9E%8B%E5%90%8D%E7%A7%B0.png)
+
+**直接回车两次**
+
+![直接回车两次](https://pic.sl.al/gdrive/pic/2026-03-08/fileid_11SeWyYDNii9y1tA8V-oY8MSpdKwOVDU1_%E5%9B%9E%E8%BD%A62.png)
 
 ---
 
-## 四、启动 OpenClaw
+## 四、配置 Telegram 机器人（可选）
 
-### 前台运行
+如果想通过 Telegram 使用 OpenClaw，需要先创建机器人。
 
-如果你想先调试，直接运行：
+**选择渠道（以 Telegram 为例）**
 
-```bash
-openclaw
-```
+![选择渠道](https://pic.sl.al/gdrive/pic/2026-03-08/fileid_1BSnlp8EsxHM6Vawf-Wy9SaGKBXOsQKsy_%E6%B8%A0%E9%81%93.png)
 
-这种方式会把日志直接输出在当前终端里，按 `Ctrl + C` 就会停止。
+**在 Telegram 中搜索 @BotFather**
 
-### 启动网关
+![搜索BotFather](https://pic.sl.al/gdrive/pic/2026-03-08/fileid_1_2XCW7xPhOyqBduKp4lJm-jmYWoAdTPt_%E6%90%9C%E7%B4%A2.png)
 
-按官方 README 的方式，也可以直接启动网关：
+**对话输入 /newbot，输入机器人名称，再输入机器人用户名，得到 token**
+
+![创建机器人](https://pic.sl.al/gdrive/pic/2026-03-08/fileid_14kjpayko-N3Mh8lr1JIImhQ7OKCx-Axc_%E5%88%9B%E5%BB%BA.png)
+
+**回到电脑终端，输入 Telegram 机器人的 token**
+
+![输入token](https://pic.sl.al/gdrive/pic/2026-03-08/fileid_1JZnPzTjhyB8vbo9khhd_j9DXSHRwJAxp_token.png)
+
+---
+
+## 五、完成配置
+
+**技能先不配置，选择 no**
+
+![技能配置](https://pic.sl.al/gdrive/pic/2026-03-08/fileid_1WV85l6Wl8Hq4V2UUBDPZje0yO86RdJT2_%E6%8A%80%E8%83%BD.png)
+
+**Hooks 全部点击空格勾选，然后回车**
+
+![启用Hooks](https://pic.sl.al/gdrive/pic/2026-03-08/fileid_1PYiQz5UIKy10btkbK2HH2sJz8oYuBpkF_Hooks.png)
+
+**安装成功**
+
+![安装成功](https://pic.sl.al/gdrive/pic/2026-03-08/fileid_1ozp2jQ-NyUOAA7H-u_fg2XEZZjCQXLxj_%E6%88%90%E5%8A%9F.png)
+
+---
+
+## 六、启动与访问
+
+**启动 OpenClaw**
 
 ```bash
 openclaw gateway
 ```
 
-如果你在初始化时用过：
+![启动Openclaw](https://pic.sl.al/gdrive/pic/2026-03-08/fileid_1FLG6s_d1GDDH41V7Dv8dPBX9PhsddY-Q_%E5%90%AF%E5%8A%A8.png)
 
-```bash
-openclaw onboard --install-daemon
-```
-
-那后续更推荐使用下面这些网关管理命令。
-
----
-
-## 五、打开 Dashboard 控制台
-
-官方命令：
+**打开 Dashboard 控制台**
 
 ```bash
 openclaw dashboard
 ```
 
-如果浏览器没有自动打开，手动访问：
+或手动访问 `http://localhost:18789`
 
-```text
-http://localhost:18789
-```
-
-如果你第一次打开后页面不是中文，到 **Overview** 页面底部，把 **Language** 切换成 **简体中文（Simplified Chinese）**，然后刷新页面即可。
+![Web界面](https://pic.sl.al/gdrive/pic/2026-03-08/fileid_17yJUPqLfnB2p4giGS-dsDp-T7HF1FExa_Web.png)
 
 ---
 
-## 六、查看状态和诊断问题
+## 七、修复无法打开浏览器问题
 
-官方常用命令：
+如果 OpenClaw 无法打开浏览器，需要修改配置文件。
+
+**找到配置文件**
+
+路径：`C:\Users\用户名\.openclaw\openclaw.json`
+
+**修改 profile 为 full**
+
+找到 `tools` 部分，将 `profile` 改为 `full`：
+
+```json
+"tools": {
+    "profile": "full",
+    "web": {
+      "search": {
+        "enabled": true
+      },
+      "fetch": {
+        "enabled": true
+      }
+    }
+  },
+```
+
+![修复配置](https://pic.sl.al/gdrive/pic/2026-03-08/fileid_1GVo_TDqCxWQIbYVqOkasN9QlQWwE3VoN_%E4%BF%AE%E5%A4%8D.png)
+
+修改完成后重启 OpenClaw 服务即可。
+
+---
+
+## 八、常用管理命令
 
 ```bash
+# 查看状态和诊断
 openclaw status
 openclaw doctor
-```
 
-- `openclaw status`：查看当前运行状态
-- `openclaw doctor`：自动诊断常见问题
-
-如果你改了配置，最常用的操作就是重启。
-
----
-
-## 七、重启命令
-
-```bash
-# 推荐
+# 重启服务
 openclaw gateway restart
 
-# 先停再起
-openclaw gateway stop
-openclaw gateway start
-```
-
-如果你已经安装了守护进程，也可以用：
-
-```bash
+# 守护进程管理
 openclaw daemon start
 openclaw daemon stop
 openclaw daemon restart
 openclaw daemon status
-```
 
----
-
-## 八、常用命令速查
-
-```bash
-openclaw                    # 启动 OpenClaw
-openclaw onboard            # 初始化向导
+# 其他常用命令
 openclaw dashboard          # 打开网页控制台
 openclaw config             # 查看/修改配置
 openclaw skills             # 管理技能
 openclaw --help             # 查看帮助
-
-openclaw gateway            # 启动网关
-openclaw gateway run        # 前台运行（调试）
-openclaw gateway start      # 后台守护进程
-openclaw gateway stop       # 停止网关
-openclaw gateway restart    # 重启网关
-openclaw gateway status     # 查看网关状态
-openclaw gateway install    # 安装为系统服务
-
-openclaw update             # 检查并更新 CLI
-openclaw doctor             # 自动诊断问题
 ```
-
-> 官方 README 提醒：如果 Windows 下 `gateway install` 失败，比如提示 `schtasks` 不可用，可以先改用 `openclaw gateway start`。
 
 ---
 
 ## 九、卸载教程
 
-### 卸载 CLI
+卸载 CLI：
 
 ```bash
 npm uninstall -g @qingchencloud/openclaw-zh
 ```
 
-如果你之前装过原版，官方 README 还给了这一条：
-
-```bash
-npm uninstall -g openclaw
-```
-
-### 删除本地配置（可选）
-
-> 注意：这一步会删除你的本地配置，不可恢复。
+删除配置（可选，不可恢复）：
 
 ```bash
 rm -rf ~/.openclaw
 ```
 
-### 卸载守护进程
+卸载守护进程：
 
 **macOS**
-
 ```bash
 launchctl unload ~/Library/LaunchAgents/com.openclaw.plist
 rm ~/Library/LaunchAgents/com.openclaw.plist
 ```
 
-**Linux（systemd）**
-
+**Linux**
 ```bash
 sudo systemctl stop openclaw
 sudo systemctl disable openclaw
@@ -287,31 +254,15 @@ sudo systemctl daemon-reload
 
 ---
 
-## 十、更新升级命令
+## 十、更新升级
 
-### 升级稳定版
-
-官方 README 给出的升级命令：
+升级到最新版：
 
 ```bash
 npm update -g @qingchencloud/openclaw-zh
 ```
 
-升级后检查版本：
-
-```bash
-openclaw --version
-```
-
-### 切换到 nightly 版本
-
-如果你想体验更快同步上游的新版本，可以用：
-
-```bash
-npm install -g @qingchencloud/openclaw-zh@nightly
-```
-
-### 用 CLI 检查更新
+或使用 CLI 检查更新：
 
 ```bash
 openclaw update
