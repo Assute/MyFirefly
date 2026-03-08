@@ -1,4 +1,4 @@
-﻿import type { ProfileConfig } from "../types/config";
+import type { ProfileConfig } from "../types/config";
 
 export const profileConfig: ProfileConfig = {
 	// 头像
@@ -34,18 +34,20 @@ export const profileConfig: ProfileConfig = {
 			showName: false,
 		},
 		{
-			name: "Email",
-			icon: "fa7-solid:envelope",
-			url: "mailto:xiaye@msn.com",
+			name: "Gitee",
+			icon: "fa7-brands:gitee",
+			url: "https://gitee.com/Assute",
 			showName: false,
 		},
 		{
-			name: "RSS",
-			icon: "fa7-solid:rss",
-			url: "/rss/",
+			name: "微信",
+			icon: "fa7-brands:weixin",
+			url: "weixin://contacts/profile/S2020712",
 			showName: false,
 		},
 	],
 };
+
+
 
 
