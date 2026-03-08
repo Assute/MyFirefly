@@ -40,9 +40,9 @@ export const profileConfig: ProfileConfig = {
 			showName: false,
 		},
 		{
-			name: "微信",
-			icon: "fa7-brands:weixin",
-			url: "weixin://contacts/profile/S2020712",
+			name: "RSS",
+			icon: "fa7-solid:rss",
+			url: "/rss/",
 			showName: false,
 		},
 	],
