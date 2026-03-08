@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Assute</title><description>Blog</description><link>https://yoyoiu.com/</link><templateTheme>Firefly</templateTheme><templateThemeVersion>6.7.7</templateThemeVersion><templateThemeUrl>https://github.com/CuteLeaf/Firefly</templateThemeUrl><lastBuildDate>2026年3月8日 17:41:43</lastBuildDate><item><title>OpenClaw 汉化版 Docker 部署教程</title><link>https://yoyoiu.com/posts/openclaw-docker-deploy-guide/</link><guid isPermaLink="true">https://yoyoiu.com/posts/openclaw-docker-deploy-guide/</guid><description>基于 OpenClawChineseTranslation 官方 Docker 部署指南整理的一篇实战教程，涵盖一键部署、手动部署、远程访问、Token 认证、Docker Compose 和更新命令。</description><pubDate>Sat, 07 Mar 2026 08:03:54 GMT</pubDate><content:encoded>&lt;p&gt;&lt;/p&gt;&lt;figure&gt;&lt;img src=&quot;https://raw.githubusercontent.com/1186258278/OpenClawChineseTranslation/main/docs/image/5.png&quot; alt=&quot;OpenClaw 汉化版官方截图&quot; /&gt;&lt;figcaption&gt;OpenClaw 汉化版官方截图&lt;/figcaption&gt;&lt;/figure&gt;&lt;p&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Assute</title><description>Blog</description><link>https://yoyoiu.com/</link><templateTheme>Firefly</templateTheme><templateThemeVersion>6.7.7</templateThemeVersion><templateThemeUrl>https://github.com/CuteLeaf/Firefly</templateThemeUrl><lastBuildDate>2026年3月8日 20:52:02</lastBuildDate><item><title>OpenClaw 汉化版 Docker 部署教程</title><link>https://yoyoiu.com/posts/openclaw-docker-deploy-guide/</link><guid isPermaLink="true">https://yoyoiu.com/posts/openclaw-docker-deploy-guide/</guid><description>基于 OpenClawChineseTranslation 官方 Docker 部署指南整理的一篇实战教程，涵盖一键部署、手动部署、远程访问、Token 认证、Docker Compose 和更新命令。</description><pubDate>Sat, 07 Mar 2026 08:03:54 GMT</pubDate><content:encoded>&lt;p&gt;&lt;/p&gt;&lt;figure&gt;&lt;img src=&quot;https://raw.githubusercontent.com/1186258278/OpenClawChineseTranslation/main/docs/image/5.png&quot; alt=&quot;OpenClaw 汉化版官方截图&quot; /&gt;&lt;figcaption&gt;OpenClaw 汉化版官方截图&lt;/figcaption&gt;&lt;/figure&gt;&lt;p&gt;&lt;/p&gt;
 &lt;section&gt;&lt;h2&gt;一、一键 Docker 部署&lt;a href=&quot;#一一键-docker-部署&quot;&gt;&lt;span&gt;#&lt;/span&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;如果你想最快部署起来，官方 &lt;code&gt;DOCKER_GUIDE.md&lt;/code&gt; 最推荐的方式就是直接运行一键脚本。&lt;/p&gt;&lt;section&gt;&lt;h3&gt;Linux / macOS&lt;a href=&quot;#linux--macos&quot;&gt;&lt;span&gt;#&lt;/span&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div&gt;&lt;figure&gt;&lt;figcaption&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;Terminal window&lt;/span&gt;&lt;/figcaption&gt;&lt;pre&gt;&lt;code&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;1&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;curl&lt;/span&gt;&lt;span&gt; &lt;/span&gt;&lt;span&gt;-fsSL&lt;/span&gt;&lt;span&gt; &lt;/span&gt;&lt;span&gt;https://cdn.jsdelivr.net/gh/1186258278/OpenClawChineseTranslation@main/docker-deploy.sh&lt;/span&gt;&lt;span&gt; | &lt;/span&gt;&lt;span&gt;bash&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;div&gt;&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/figure&gt;&lt;/div&gt;&lt;/section&gt;&lt;section&gt;&lt;h3&gt;Windows PowerShell&lt;a href=&quot;#windows-powershell&quot;&gt;&lt;span&gt;#&lt;/span&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div&gt;&lt;figure&gt;&lt;figcaption&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;Terminal window&lt;/span&gt;&lt;/figcaption&gt;&lt;pre&gt;&lt;code&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;1&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;&lt;span&gt;irm https:&lt;/span&gt;&lt;span&gt;//&lt;/span&gt;&lt;span&gt;cdn.jsdelivr.net&lt;/span&gt;&lt;span&gt;/&lt;/span&gt;&lt;span&gt;gh&lt;/span&gt;&lt;span&gt;/&lt;/span&gt;&lt;/span&gt;&lt;span&gt;1186258278&lt;/span&gt;&lt;span&gt;&lt;span&gt;/&lt;/span&gt;&lt;span&gt;OpenClawChineseTranslation&lt;/span&gt;&lt;/span&gt;&lt;span&gt;@main&lt;/span&gt;&lt;span&gt;&lt;span&gt;/&lt;/span&gt;&lt;span&gt;docker&lt;/span&gt;&lt;span&gt;-&lt;/span&gt;&lt;span&gt;deploy.ps1 | iex&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;div&gt;&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/figure&gt;&lt;/div&gt;&lt;p&gt;官方文档说明，这个脚本会自动完成：&lt;/p&gt;&lt;ul&gt;
 &lt;li&gt;初始化配置&lt;/li&gt;
 &lt;li&gt;配置远程访问参数&lt;/li&gt;
@@ -901,7 +901,128 @@ c\alpha + d\gamma &amp;amp; c\beta + d\delta
 &lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;17&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;:::caution&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;18&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;行动的负面潜在后果。&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;19&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;:::&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;20&lt;/div&gt;&lt;/div&gt;&lt;div&gt;
 &lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;21&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;:::tip&lt;/span&gt;&lt;span&gt;[&lt;/span&gt;&lt;span&gt;自定义标题&lt;/span&gt;&lt;span&gt;]&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;22&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;可选信息，帮助用户更成功。&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;23&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;:::&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;div&gt;&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/figure&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;&lt;span&gt;显示更多&lt;/span&gt;&lt;span&gt;显示更少&lt;/span&gt;&lt;/div&gt;&lt;/div&gt; &lt;hr /&gt;&lt;/section&gt;&lt;/section&gt;
 &lt;section&gt;&lt;h2&gt;剧透&lt;a href=&quot;#剧透&quot;&gt;&lt;span&gt;#&lt;/span&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;您可以为文本添加剧透。文本也支持 &lt;strong&gt;Markdown&lt;/strong&gt; 语法。&lt;/p&gt;&lt;p&gt;内容 被隐藏了 &lt;strong&gt;哈哈&lt;/strong&gt;！&lt;/p&gt;&lt;div&gt;&lt;figure&gt;&lt;figcaption&gt;&lt;/figcaption&gt;&lt;pre&gt;&lt;code&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;1&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;内容 :spoiler[被隐藏了 &lt;/span&gt;&lt;span&gt;**哈哈**&lt;/span&gt;&lt;span&gt;]！&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;div&gt;&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/figure&gt;&lt;/div&gt;&lt;/section&gt;
-&lt;section&gt;&lt;h2&gt;图片画廊网格 (Image Grid)&lt;a href=&quot;#图片画廊网格-image-grid&quot;&gt;&lt;span&gt;#&lt;/span&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;您可以使用 &lt;code&gt;[grid]&lt;/code&gt; 和 &lt;code&gt;[/grid]&lt;/code&gt; 标签将多张图片纵向并排展示。这对于展示照片画廊或对比图非常有用。系统会自动根据包裹在其中的图片数量（最多支持并排展示4张）以响应式网格进行布局。&lt;/p&gt;&lt;p&gt;&lt;strong&gt;自动补齐图片高度：&lt;/strong&gt; 同一排中如果有高度、大小或者比例不一的图片，会像「九宫格画廊相册」一样自动撑满。较短或不协调的图片会自动使用 object-cover 进行完美中心裁剪补充视野。图片边框水平彻底对齐无缝隙，但被裁剪后，只有点击图片通过灯箱才能查看完整图片，所以建议尽量避免使用长宽比例不一致的图片在同一排中。&lt;/p&gt;&lt;p&gt;&lt;strong&gt;图注恒定底端对齐：&lt;/strong&gt; 不论上面的图片长宽如何变化，在同一行的所有图像解释文字（图注）都会对标到一条完美的水平基线上了。&lt;/p&gt;&lt;div&gt;&lt;figure&gt;&lt;img alt=&quot;示例图片一&quot; loading=&quot;lazy&quot; width=&quot;3328&quot; height=&quot;1872&quot; src=&quot;/_astro/firefly1.CZCuCN4V_1dgNYg.webp&quot; /&gt;&lt;figcaption&gt;示例图片一&lt;/figcaption&gt;&lt;/figure&gt;&lt;figure&gt;&lt;img alt=&quot;示例图片二&quot; loading=&quot;lazy&quot; width=&quot;4096&quot; height=&quot;2212&quot; src=&quot;/_astro/firefly2.dxmXG905_ZyJm5m.webp&quot; /&gt;&lt;figcaption&gt;示例图片二&lt;/figcaption&gt;&lt;/figure&gt;&lt;figure&gt;&lt;img alt=&quot;示例图片二&quot; loading=&quot;lazy&quot; width=&quot;3840&quot; height=&quot;2160&quot; src=&quot;/_astro/firefly3.CGzFXcxi_Z1Lz6q8.webp&quot; /&gt;&lt;figcaption&gt;示例图片二&lt;/figcaption&gt;&lt;/figure&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;基本语法&lt;/strong&gt;&lt;/p&gt;&lt;div&gt;&lt;figure&gt;&lt;figcaption&gt;&lt;/figcaption&gt;&lt;pre&gt;&lt;code&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;1&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;[&lt;/span&gt;&lt;span&gt;grid&lt;/span&gt;&lt;span&gt;]&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;2&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;![&lt;/span&gt;&lt;span&gt;示例图片一&lt;/span&gt;&lt;span&gt;]&lt;/span&gt;&lt;span&gt;&lt;span&gt;(&lt;/span&gt;&lt;span&gt;./images/firefly1.avif&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;3&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;![&lt;/span&gt;&lt;span&gt;示例图片二&lt;/span&gt;&lt;span&gt;]&lt;/span&gt;&lt;span&gt;&lt;span&gt;(&lt;/span&gt;&lt;span&gt;./images/firefly2.avif&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;4&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;![&lt;/span&gt;&lt;span&gt;示例图片二&lt;/span&gt;&lt;span&gt;]&lt;/span&gt;&lt;span&gt;&lt;span&gt;(&lt;/span&gt;&lt;span&gt;./images/firefly3.avif&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;5&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;[&lt;/span&gt;&lt;span&gt;/grid&lt;/span&gt;&lt;span&gt;]&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;div&gt;&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/figure&gt;&lt;/div&gt;&lt;hr /&gt;&lt;/section&gt;</content:encoded></item><item><title>Markdown 教程</title><link>https://yoyoiu.com/posts/markdown-tutorial/</link><guid isPermaLink="true">https://yoyoiu.com/posts/markdown-tutorial/</guid><description>一个简明的 Markdown 博客示例。</description><pubDate>Thu, 01 Jan 1970 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;这是一个展示如何编写 Markdown 文件的示例。本文档汇总了核心语法与常见扩展（GFM）。&lt;/p&gt;
+&lt;section&gt;&lt;h2&gt;图片画廊网格 (Image Grid)&lt;a href=&quot;#图片画廊网格-image-grid&quot;&gt;&lt;span&gt;#&lt;/span&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;您可以使用 &lt;code&gt;[grid]&lt;/code&gt; 和 &lt;code&gt;[/grid]&lt;/code&gt; 标签将多张图片纵向并排展示。这对于展示照片画廊或对比图非常有用。系统会自动根据包裹在其中的图片数量（最多支持并排展示4张）以响应式网格进行布局。&lt;/p&gt;&lt;p&gt;&lt;strong&gt;自动补齐图片高度：&lt;/strong&gt; 同一排中如果有高度、大小或者比例不一的图片，会像「九宫格画廊相册」一样自动撑满。较短或不协调的图片会自动使用 object-cover 进行完美中心裁剪补充视野。图片边框水平彻底对齐无缝隙，但被裁剪后，只有点击图片通过灯箱才能查看完整图片，所以建议尽量避免使用长宽比例不一致的图片在同一排中。&lt;/p&gt;&lt;p&gt;&lt;strong&gt;图注恒定底端对齐：&lt;/strong&gt; 不论上面的图片长宽如何变化，在同一行的所有图像解释文字（图注）都会对标到一条完美的水平基线上了。&lt;/p&gt;&lt;div&gt;&lt;figure&gt;&lt;img alt=&quot;示例图片一&quot; loading=&quot;lazy&quot; width=&quot;3328&quot; height=&quot;1872&quot; src=&quot;/_astro/firefly1.CZCuCN4V_1dgNYg.webp&quot; /&gt;&lt;figcaption&gt;示例图片一&lt;/figcaption&gt;&lt;/figure&gt;&lt;figure&gt;&lt;img alt=&quot;示例图片二&quot; loading=&quot;lazy&quot; width=&quot;4096&quot; height=&quot;2212&quot; src=&quot;/_astro/firefly2.dxmXG905_ZyJm5m.webp&quot; /&gt;&lt;figcaption&gt;示例图片二&lt;/figcaption&gt;&lt;/figure&gt;&lt;figure&gt;&lt;img alt=&quot;示例图片二&quot; loading=&quot;lazy&quot; width=&quot;3840&quot; height=&quot;2160&quot; src=&quot;/_astro/firefly3.CGzFXcxi_Z1Lz6q8.webp&quot; /&gt;&lt;figcaption&gt;示例图片二&lt;/figcaption&gt;&lt;/figure&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;基本语法&lt;/strong&gt;&lt;/p&gt;&lt;div&gt;&lt;figure&gt;&lt;figcaption&gt;&lt;/figcaption&gt;&lt;pre&gt;&lt;code&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;1&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;[&lt;/span&gt;&lt;span&gt;grid&lt;/span&gt;&lt;span&gt;]&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;2&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;![&lt;/span&gt;&lt;span&gt;示例图片一&lt;/span&gt;&lt;span&gt;]&lt;/span&gt;&lt;span&gt;&lt;span&gt;(&lt;/span&gt;&lt;span&gt;./images/firefly1.avif&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;3&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;![&lt;/span&gt;&lt;span&gt;示例图片二&lt;/span&gt;&lt;span&gt;]&lt;/span&gt;&lt;span&gt;&lt;span&gt;(&lt;/span&gt;&lt;span&gt;./images/firefly2.avif&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;4&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;![&lt;/span&gt;&lt;span&gt;示例图片二&lt;/span&gt;&lt;span&gt;]&lt;/span&gt;&lt;span&gt;&lt;span&gt;(&lt;/span&gt;&lt;span&gt;./images/firefly3.avif&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;5&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;[&lt;/span&gt;&lt;span&gt;/grid&lt;/span&gt;&lt;span&gt;]&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;div&gt;&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/figure&gt;&lt;/div&gt;&lt;hr /&gt;&lt;/section&gt;</content:encoded></item><item><title>Markdown Mermaid 图表</title><link>https://yoyoiu.com/posts/markdown-mermaid/</link><guid isPermaLink="true">https://yoyoiu.com/posts/markdown-mermaid/</guid><description>一个包含 Mermaid 的 Markdown 博客文章简单示例。</description><pubDate>Thu, 01 Jan 1970 00:00:00 GMT</pubDate><content:encoded>&lt;section&gt;&lt;h1&gt;Markdown 中 Mermaid 图表完整指南&lt;a href=&quot;#markdown-中-mermaid-图表完整指南&quot;&gt;&lt;span&gt;#&lt;/span&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;本文演示如何在 Markdown 文档中使用 Mermaid 创建各种复杂图表，包括流程图、时序图、甘特图、类图和状态图。&lt;/p&gt;&lt;section&gt;&lt;h2&gt;流程图示例&lt;a href=&quot;#流程图示例&quot;&gt;&lt;span&gt;#&lt;/span&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;流程图非常适合表示流程或算法步骤。&lt;/p&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;graph TD
+    A[开始] --&amp;gt; B{条件检查}
+    B --&amp;gt;|是| C[处理步骤 1]
+    B --&amp;gt;|否| D[处理步骤 2]
+    C --&amp;gt; E[子过程]
+    D --&amp;gt; E
+    subgraph E [子过程详情]
+        E1[子步骤 1] --&amp;gt; E2[子步骤 2]
+        E2 --&amp;gt; E3[子步骤 3]
+    end
+    E --&amp;gt; F{另一个决策}
+    F --&amp;gt;|选项 1| G[结果 1]
+    F --&amp;gt;|选项 2| H[结果 2]
+    F --&amp;gt;|选项 3| I[结果 3]
+    G --&amp;gt; J[结束]
+    H --&amp;gt; J
+    I --&amp;gt; J&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;&lt;section&gt;&lt;h2&gt;时序图示例&lt;a href=&quot;#时序图示例&quot;&gt;&lt;span&gt;#&lt;/span&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;时序图显示对象之间随时间的交互。&lt;/p&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;sequenceDiagram
+    participant User as 用户
+    participant WebApp as 网页应用
+    participant Server as 服务器
+    participant Database as 数据库
+
+    User-&amp;gt;&amp;gt;WebApp: 提交登录请求
+    WebApp-&amp;gt;&amp;gt;Server: 发送认证请求
+    Server-&amp;gt;&amp;gt;Database: 查询用户凭据
+    Database--&amp;gt;&amp;gt;Server: 返回用户数据
+    Server--&amp;gt;&amp;gt;WebApp: 返回认证结果
+    
+    alt 认证成功
+        WebApp-&amp;gt;&amp;gt;User: 显示欢迎页面
+        WebApp-&amp;gt;&amp;gt;Server: 请求用户数据
+        Server-&amp;gt;&amp;gt;Database: 获取用户偏好
+        Database--&amp;gt;&amp;gt;Server: 返回偏好设置
+        Server--&amp;gt;&amp;gt;WebApp: 返回用户数据
+        WebApp-&amp;gt;&amp;gt;User: 加载个性化界面
+    else 认证失败
+        WebApp-&amp;gt;&amp;gt;User: 显示错误消息
+        WebApp-&amp;gt;&amp;gt;User: 提示重新输入
+    end&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;&lt;section&gt;&lt;h2&gt;甘特图示例&lt;a href=&quot;#甘特图示例&quot;&gt;&lt;span&gt;#&lt;/span&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;甘特图非常适合显示项目进度和时间线。&lt;/p&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;gantt
+    title 网站开发项目时间线
+    dateFormat  YYYY-MM-DD
+    axisFormat  %m/%d
+    
+    section 设计阶段
+    需求分析      :a1, 2023-10-01, 7d
+    UI设计                 :a2, after a1, 10d
+    原型创建        :a3, after a2, 5d
+    
+    section 开发阶段
+    前端开发      :b1, 2023-10-20, 15d
+    后端开发       :b2, after a2, 18d
+    数据库设计           :b3, after a1, 12d
+    
+    section 测试阶段
+    单元测试              :c1, after b1, 8d
+    集成测试       :c2, after b2, 10d
+    用户验收测试   :c3, after c2, 7d
+    
+    section 部署
+    生产环境部署     :d1, after c3, 3d
+    发布                    :milestone, after d1, 0d&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;&lt;section&gt;&lt;h2&gt;类图示例&lt;a href=&quot;#类图示例&quot;&gt;&lt;span&gt;#&lt;/span&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;类图显示系统的静态结构，包括类、属性、方法及其关系。&lt;/p&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;classDiagram
+    class User {
+        +String username
+        +String password
+        +String email
+        +Boolean active
+        +login()
+        +logout()
+        +updateProfile()
+    }
+    
+    class Article {
+        +String title
+        +String content
+        +Date publishDate
+        +Boolean published
+        +publish()
+        +edit()
+        +delete()
+    }
+    
+    class Comment {
+        +String content
+        +Date commentDate
+        +addComment()
+        +deleteComment()
+    }
+    
+    class Category {
+        +String name
+        +String description
+        +addArticle()
+        +removeArticle()
+    }
+    
+    User &quot;1&quot; -- &quot;*&quot; Article : 写作
+    User &quot;1&quot; -- &quot;*&quot; Comment : 发表
+    Article &quot;1&quot; -- &quot;*&quot; Comment : 拥有
+    Article &quot;1&quot; -- &quot;*&quot; Category : 属于&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;&lt;section&gt;&lt;h2&gt;状态图示例&lt;a href=&quot;#状态图示例&quot;&gt;&lt;span&gt;#&lt;/span&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;状态图显示对象在其生命周期中经历的状态序列。&lt;/p&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;stateDiagram-v2
+    [*] --&amp;gt; 草稿
+    
+    草稿 --&amp;gt; 审核中 : 提交
+    审核中 --&amp;gt; 草稿 : 拒绝
+    审核中 --&amp;gt; 已批准 : 批准
+    已批准 --&amp;gt; 已发布 : 发布
+    已发布 --&amp;gt; 已归档 : 归档
+    已发布 --&amp;gt; 草稿 : 撤回
+    
+    state 已发布 {
+        [*] --&amp;gt; 活跃
+        活跃 --&amp;gt; 隐藏 : 临时隐藏
+        隐藏 --&amp;gt; 活跃 : 恢复
+        活跃 --&amp;gt; [*]
+        隐藏 --&amp;gt; [*]
+    }
+    
+    已归档 --&amp;gt; [*]&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;&lt;section&gt;&lt;h2&gt;饼图示例&lt;a href=&quot;#饼图示例&quot;&gt;&lt;span&gt;#&lt;/span&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;饼图非常适合显示比例和百分比数据。&lt;/p&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;pie title 网站流量来源分析
+    &quot;搜索引擎&quot; : 45.6
+    &quot;直接访问&quot; : 30.1
+    &quot;社交媒体&quot; : 15.3
+    &quot;推荐链接&quot; : 6.4
+    &quot;其他来源&quot; : 2.6&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;&lt;section&gt;&lt;h2&gt;总结&lt;a href=&quot;#总结&quot;&gt;&lt;span&gt;#&lt;/span&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Mermaid 是在 Markdown 文档中创建各种类型图表的强大工具。本文演示了如何使用流程图、时序图、甘特图、类图、状态图和饼图。这些图表可以帮助您更清晰地表达复杂的概念、流程和数据结构。&lt;/p&gt;&lt;p&gt;要使用 Mermaid，只需在代码块中指定 mermaid 语言，并使用简洁的文本语法描述图表。Mermaid 会自动将这些描述转换为美观的可视化图表。&lt;/p&gt;&lt;p&gt;尝试在您的下一篇技术博客文章或项目文档中使用 Mermaid 图表 - 它们将使您的内容更加专业且更易理解！&lt;/p&gt;&lt;/section&gt;&lt;/section&gt;</content:encoded></item><item><title>Markdown 教程</title><link>https://yoyoiu.com/posts/markdown-tutorial/</link><guid isPermaLink="true">https://yoyoiu.com/posts/markdown-tutorial/</guid><description>一个简明的 Markdown 博客示例。</description><pubDate>Thu, 01 Jan 1970 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;这是一个展示如何编写 Markdown 文件的示例。本文档汇总了核心语法与常见扩展（GFM）。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;#block-elements&quot;&gt;块级元素&lt;/a&gt;
 &lt;ul&gt;
@@ -1060,128 +1181,7 @@ inside a list item.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;3&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;&amp;lt;div&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;4&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;&lt;span&gt;    &lt;/span&gt;&lt;/span&gt;&lt;span&gt;**No Work**&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;5&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;div&gt;&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/figure&gt;&lt;/div&gt;&lt;p&gt;预览：&lt;/p&gt;&lt;hr /&gt;&lt;p&gt;&lt;span&gt;&lt;strong&gt;Work&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;&lt;div&gt;
   **No Work**
 &lt;/div&gt;
-***&lt;/section&gt;&lt;/section&gt;</content:encoded></item><item><title>Markdown Mermaid 图表</title><link>https://yoyoiu.com/posts/markdown-mermaid/</link><guid isPermaLink="true">https://yoyoiu.com/posts/markdown-mermaid/</guid><description>一个包含 Mermaid 的 Markdown 博客文章简单示例。</description><pubDate>Thu, 01 Jan 1970 00:00:00 GMT</pubDate><content:encoded>&lt;section&gt;&lt;h1&gt;Markdown 中 Mermaid 图表完整指南&lt;a href=&quot;#markdown-中-mermaid-图表完整指南&quot;&gt;&lt;span&gt;#&lt;/span&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;本文演示如何在 Markdown 文档中使用 Mermaid 创建各种复杂图表，包括流程图、时序图、甘特图、类图和状态图。&lt;/p&gt;&lt;section&gt;&lt;h2&gt;流程图示例&lt;a href=&quot;#流程图示例&quot;&gt;&lt;span&gt;#&lt;/span&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;流程图非常适合表示流程或算法步骤。&lt;/p&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;graph TD
-    A[开始] --&amp;gt; B{条件检查}
-    B --&amp;gt;|是| C[处理步骤 1]
-    B --&amp;gt;|否| D[处理步骤 2]
-    C --&amp;gt; E[子过程]
-    D --&amp;gt; E
-    subgraph E [子过程详情]
-        E1[子步骤 1] --&amp;gt; E2[子步骤 2]
-        E2 --&amp;gt; E3[子步骤 3]
-    end
-    E --&amp;gt; F{另一个决策}
-    F --&amp;gt;|选项 1| G[结果 1]
-    F --&amp;gt;|选项 2| H[结果 2]
-    F --&amp;gt;|选项 3| I[结果 3]
-    G --&amp;gt; J[结束]
-    H --&amp;gt; J
-    I --&amp;gt; J&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;&lt;section&gt;&lt;h2&gt;时序图示例&lt;a href=&quot;#时序图示例&quot;&gt;&lt;span&gt;#&lt;/span&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;时序图显示对象之间随时间的交互。&lt;/p&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;sequenceDiagram
-    participant User as 用户
-    participant WebApp as 网页应用
-    participant Server as 服务器
-    participant Database as 数据库
-
-    User-&amp;gt;&amp;gt;WebApp: 提交登录请求
-    WebApp-&amp;gt;&amp;gt;Server: 发送认证请求
-    Server-&amp;gt;&amp;gt;Database: 查询用户凭据
-    Database--&amp;gt;&amp;gt;Server: 返回用户数据
-    Server--&amp;gt;&amp;gt;WebApp: 返回认证结果
-    
-    alt 认证成功
-        WebApp-&amp;gt;&amp;gt;User: 显示欢迎页面
-        WebApp-&amp;gt;&amp;gt;Server: 请求用户数据
-        Server-&amp;gt;&amp;gt;Database: 获取用户偏好
-        Database--&amp;gt;&amp;gt;Server: 返回偏好设置
-        Server--&amp;gt;&amp;gt;WebApp: 返回用户数据
-        WebApp-&amp;gt;&amp;gt;User: 加载个性化界面
-    else 认证失败
-        WebApp-&amp;gt;&amp;gt;User: 显示错误消息
-        WebApp-&amp;gt;&amp;gt;User: 提示重新输入
-    end&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;&lt;section&gt;&lt;h2&gt;甘特图示例&lt;a href=&quot;#甘特图示例&quot;&gt;&lt;span&gt;#&lt;/span&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;甘特图非常适合显示项目进度和时间线。&lt;/p&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;gantt
-    title 网站开发项目时间线
-    dateFormat  YYYY-MM-DD
-    axisFormat  %m/%d
-    
-    section 设计阶段
-    需求分析      :a1, 2023-10-01, 7d
-    UI设计                 :a2, after a1, 10d
-    原型创建        :a3, after a2, 5d
-    
-    section 开发阶段
-    前端开发      :b1, 2023-10-20, 15d
-    后端开发       :b2, after a2, 18d
-    数据库设计           :b3, after a1, 12d
-    
-    section 测试阶段
-    单元测试              :c1, after b1, 8d
-    集成测试       :c2, after b2, 10d
-    用户验收测试   :c3, after c2, 7d
-    
-    section 部署
-    生产环境部署     :d1, after c3, 3d
-    发布                    :milestone, after d1, 0d&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;&lt;section&gt;&lt;h2&gt;类图示例&lt;a href=&quot;#类图示例&quot;&gt;&lt;span&gt;#&lt;/span&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;类图显示系统的静态结构，包括类、属性、方法及其关系。&lt;/p&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;classDiagram
-    class User {
-        +String username
-        +String password
-        +String email
-        +Boolean active
-        +login()
-        +logout()
-        +updateProfile()
-    }
-    
-    class Article {
-        +String title
-        +String content
-        +Date publishDate
-        +Boolean published
-        +publish()
-        +edit()
-        +delete()
-    }
-    
-    class Comment {
-        +String content
-        +Date commentDate
-        +addComment()
-        +deleteComment()
-    }
-    
-    class Category {
-        +String name
-        +String description
-        +addArticle()
-        +removeArticle()
-    }
-    
-    User &quot;1&quot; -- &quot;*&quot; Article : 写作
-    User &quot;1&quot; -- &quot;*&quot; Comment : 发表
-    Article &quot;1&quot; -- &quot;*&quot; Comment : 拥有
-    Article &quot;1&quot; -- &quot;*&quot; Category : 属于&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;&lt;section&gt;&lt;h2&gt;状态图示例&lt;a href=&quot;#状态图示例&quot;&gt;&lt;span&gt;#&lt;/span&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;状态图显示对象在其生命周期中经历的状态序列。&lt;/p&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;stateDiagram-v2
-    [*] --&amp;gt; 草稿
-    
-    草稿 --&amp;gt; 审核中 : 提交
-    审核中 --&amp;gt; 草稿 : 拒绝
-    审核中 --&amp;gt; 已批准 : 批准
-    已批准 --&amp;gt; 已发布 : 发布
-    已发布 --&amp;gt; 已归档 : 归档
-    已发布 --&amp;gt; 草稿 : 撤回
-    
-    state 已发布 {
-        [*] --&amp;gt; 活跃
-        活跃 --&amp;gt; 隐藏 : 临时隐藏
-        隐藏 --&amp;gt; 活跃 : 恢复
-        活跃 --&amp;gt; [*]
-        隐藏 --&amp;gt; [*]
-    }
-    
-    已归档 --&amp;gt; [*]&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;&lt;section&gt;&lt;h2&gt;饼图示例&lt;a href=&quot;#饼图示例&quot;&gt;&lt;span&gt;#&lt;/span&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;饼图非常适合显示比例和百分比数据。&lt;/p&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;pie title 网站流量来源分析
-    &quot;搜索引擎&quot; : 45.6
-    &quot;直接访问&quot; : 30.1
-    &quot;社交媒体&quot; : 15.3
-    &quot;推荐链接&quot; : 6.4
-    &quot;其他来源&quot; : 2.6&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;&lt;section&gt;&lt;h2&gt;总结&lt;a href=&quot;#总结&quot;&gt;&lt;span&gt;#&lt;/span&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Mermaid 是在 Markdown 文档中创建各种类型图表的强大工具。本文演示了如何使用流程图、时序图、甘特图、类图、状态图和饼图。这些图表可以帮助您更清晰地表达复杂的概念、流程和数据结构。&lt;/p&gt;&lt;p&gt;要使用 Mermaid，只需在代码块中指定 mermaid 语言，并使用简洁的文本语法描述图表。Mermaid 会自动将这些描述转换为美观的可视化图表。&lt;/p&gt;&lt;p&gt;尝试在您的下一篇技术博客文章或项目文档中使用 Mermaid 图表 - 它们将使您的内容更加专业且更易理解！&lt;/p&gt;&lt;/section&gt;&lt;/section&gt;</content:encoded></item><item><title>在文章中嵌入视频</title><link>https://yoyoiu.com/posts/video/</link><guid isPermaLink="true">https://yoyoiu.com/posts/video/</guid><description>这篇文章演示如何在博客文章中嵌入视频。</description><pubDate>Thu, 01 Jan 1970 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;只需从 YouTube 或其他平台复制嵌入代码，然后将其粘贴到 markdown 文件中。&lt;/p&gt;
+***&lt;/section&gt;&lt;/section&gt;</content:encoded></item><item><title>在文章中嵌入视频</title><link>https://yoyoiu.com/posts/video/</link><guid isPermaLink="true">https://yoyoiu.com/posts/video/</guid><description>这篇文章演示如何在博客文章中嵌入视频。</description><pubDate>Thu, 01 Jan 1970 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;只需从 YouTube 或其他平台复制嵌入代码，然后将其粘贴到 markdown 文件中。&lt;/p&gt;
 &lt;div&gt;&lt;figure&gt;&lt;figcaption&gt;&lt;/figcaption&gt;&lt;pre&gt;&lt;code&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;1&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;---&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;2&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;title&lt;/span&gt;&lt;span&gt;: &lt;/span&gt;&lt;span&gt;在文章中嵌入视频&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;3&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;published&lt;/span&gt;&lt;span&gt;: &lt;/span&gt;&lt;span&gt;2023-10-19&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;4&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;// ...&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;5&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;---&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;6&lt;/div&gt;&lt;/div&gt;&lt;div&gt;
 &lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;7&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;&amp;lt;iframe width=&quot;100%&quot; height=&quot;468&quot; src=&quot;https://www.youtube.com/embed/5gIf0_xpFPI?si=N1WTorLKL0uwLsU_&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allowfullscreen&amp;gt;&amp;lt;/iframe&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;div&gt;&lt;div&gt;&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/figure&gt;&lt;/div&gt;
 &lt;section&gt;&lt;h2&gt;YouTube&lt;a href=&quot;#youtube&quot;&gt;&lt;span&gt;#&lt;/span&gt;&lt;/a&gt;&lt;/h2&gt;&lt;/section&gt;
