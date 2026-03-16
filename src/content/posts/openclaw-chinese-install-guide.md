@@ -6,7 +6,7 @@ image: "https://pic.sl.al/gdrive/pic/2026-03-08/fileid_1KaZ53YaT5E8Z3Ham7BkQkEjk
 tags: [AI, 教程, OpenClaw, 图文教程]
 category: AI
 draft: false
-pinned: true
+pinned: false
 sourceLink: "https://github.com/1186258278/OpenClawChineseTranslation"
 ---
 

@@ -6,7 +6,7 @@ image: "https://img.072899.xyz/2025/10/37b12b67193ec67774e2f657e38eefc9.png"
 tags: [AI, 教程]
 category: AI
 draft: false
-pinned: true
+pinned: false
 sourceLink: "https://help.router-for.me/cn/hands-on/tutorial-6"
 ---
 
