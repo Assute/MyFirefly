@@ -141,7 +141,37 @@ MGT-123456
 /management.html
 ```
 
-## 七、常见问题
+## 七、补充：CC 配置 GPT-5.4 1M 对话
+
+如果你已经把 `CLI Proxy API` 跑起来了，还想在 `CC` 里开启 `GPT-5.4` 的大上下文对话，可以把下面这段补到对应配置中：
+
+```toml
+model = "gpt-5.4"
+model_reasoning_effort = "xhigh"
+model_context_window = 1047576
+model_auto_compact_token_limit = 105197
+web_search = "live"
+
+[features]
+multi_agent = true
+
+[agents]
+max_threads = 4
+```
+
+这几项可以这样理解：
+
+- `model = "gpt-5.4"`：切换到 `GPT-5.4`
+- `model_reasoning_effort = "xhigh"`：开启更高推理强度
+- `model_context_window = 1047576`：把上下文窗口开到接近 `1M`
+- `model_auto_compact_token_limit = 105197`：超过阈值后自动压缩上下文
+- `web_search = "live"`：启用实时联网搜索
+- `multi_agent = true`：开启多代理能力
+- `max_threads = 4`：最多并行 4 个代理线程
+
+如果你本地已经配置好了接口地址和密钥，这一段加进去后，就可以直接用于 `GPT-5.4` 的长上下文对话场景。
+
+## 八、常见问题
 
 ### 1）为什么打开不了管理页面？
 
@@ -180,7 +210,7 @@ remote-management:
 systemctl --user restart cli-proxy-api
 ```
 
-## 八、最短操作版
+## 九、最短操作版
 
 如果你只想快速完成部署，直接按下面执行：
 
@@ -204,7 +234,7 @@ MGT-123456
 
 到这里就完成了：**VPS 一键安装 -> 修改配置启用 GUI -> 重启生效 -> 浏览器进入管理页面**。
 
-## 参考资料
+## 十、参考资料
 
 - 官方 GUI 教程：<https://help.router-for.me/cn/hands-on/tutorial-6>
 - 配置选项文档：<https://help.router-for.me/cn/configuration/options>

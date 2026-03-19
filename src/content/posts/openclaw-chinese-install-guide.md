@@ -195,6 +195,38 @@ openclaw dashboard
 
 修改完成后重启 OpenClaw 服务即可。
 
+### 补充：Telegram 渠道提权配置
+
+如果你希望在 Telegram 渠道里允许指定账号使用提权能力，可以继续在 `openclaw.json` 的 `tools` 配置里补充下面这段：
+
+```json
+"tools": {
+    "profile": "full",
+    "web": {
+      "search": {
+        "provider": "brave"
+      }
+    },
+    "elevated": {
+      "enabled": true,
+      "allowFrom": {
+        "telegram": [
+          "123456789"
+        ]
+      }
+    }
+  },
+```
+
+说明：
+
+- `provider: "brave"`：把搜索提供商设置为 `brave`
+- `enabled: true`：开启提权能力
+- `allowFrom.telegram`：只允许这里填写的 Telegram 用户 ID 使用提权
+- `123456789`：记得替换成你自己的 Telegram 数字 ID
+
+修改完成后同样需要重启 OpenClaw 服务。
+
 ---
 
 ## 八、常用管理命令
