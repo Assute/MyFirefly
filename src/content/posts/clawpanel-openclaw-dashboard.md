@@ -6,7 +6,7 @@ image: "https://raw.githubusercontent.com/qingchencloud/clawpanel/main/docs/01.p
 tags: [AI, OpenClaw, 工具]
 category: AI
 draft: false
-pinned: true
+pinned: false
 sourceLink: "https://github.com/qingchencloud/clawpanel"
 ---
 
