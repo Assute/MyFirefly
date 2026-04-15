@@ -4,7 +4,7 @@ published: 2026-03-07T16:03:54+08:00
 description: 基于 OpenClawChineseTranslation 官方 Docker 部署指南整理的一篇实战教程，涵盖一键部署、手动部署、远程访问、Token 认证、Docker Compose 和更新命令。
 image: "https://raw.githubusercontent.com/1186258278/OpenClawChineseTranslation/main/docs/image/5.png"
 tags: [AI, 教程, OpenClaw, Docker]
-category: AI
+category: GitHub
 draft: false
 pinned: false
 sourceLink: "https://github.com/1186258278/OpenClawChineseTranslation"

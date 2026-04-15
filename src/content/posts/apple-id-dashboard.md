@@ -4,7 +4,7 @@ published: 2026-03-07T01:07:45+08:00
 description: 这是一个 Apple ID 共享平台项目，使用 Node.js + Express + Axios + Cheerio 实时抓取并展示账号信息，支持地区过滤与广告配置。
 image: "https://pic.sl.al/gdrive/pic/2026-03-06/fileid_1pb6_Lhzq-D2JpI1Eu64tDCu87HELP8Iu_image.png"
 tags: [网站]
-category: 脚本
+category: GitHub
 draft: false
 sourceLink: "https://github.com/Assute/Apple_id"
 ---

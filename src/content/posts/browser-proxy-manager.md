@@ -4,7 +4,7 @@ published: 2026-03-06T10:00:00+08:00
 description: Browser Proxy Manager 是一款轻量的 Chrome 代理切换扩展，支持手动代理配置和通过 API 自动获取、验证、轮换代理 IP。
 image: "https://upload-bbs.miyoushe.com/upload/2026/02/27/363490070/8818ca8f548463e2dab8d19abc6659c3_1858078389479248811.jpeg"
 tags: [浏览器插件]
-category: 浏览器插件
+category: GitHub
 draft: false
 ---
 

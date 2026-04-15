@@ -4,7 +4,7 @@ published: 2026-03-06T18:05:44+08:00
 description: 一个基于 rsync、sshpass 和 cron 的 Linux 服务器自动备份脚本，支持交互式配置、增量同步、定时任务和开机自启。
 image: "https://upload-bbs.miyoushe.com/upload/2026/03/01/363490070/e4f9fbad785cd0a3b53d88a9b21518ed_6185428099354103731.jpeg"
 tags: [服务器, 备份, 脚本]
-category: 脚本
+category: GitHub
 draft: false
 ---
 

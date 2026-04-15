@@ -4,7 +4,7 @@ published: 2026-03-06T10:30:00+08:00
 description: Cookie Viewer & Exporter 是一款轻量的 Chrome 扩展，可以一键查看当前网站的所有 Cookie，并快速复制或导出为标准请求头格式。
 image: "https://upload-bbs.miyoushe.com/upload/2026/02/27/363490070/b8105e957c03e8d84a13d32973c8e220_7312483646035272672.jpeg"
 tags: [浏览器插件]
-category: 浏览器插件
+category: GitHub
 draft: false
 ---
 

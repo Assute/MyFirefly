@@ -4,7 +4,7 @@ published: 2026-03-07T15:45:00+08:00
 description: 基于 OpenClawChineseTranslation 官方 README 和安装指南整理的一篇详细图文教程，涵盖安装、初始化、Telegram 机器人配置、中文用户名问题修复、启动、重启、卸载和升级。
 image: "https://pic.sl.al/gdrive/pic/2026-03-08/fileid_1KaZ53YaT5E8Z3Ham7BkQkEjkmgJxJ2b8_%E5%88%9D%E5%A7%8B%E5%8C%96.png"
 tags: [AI, 教程, OpenClaw, 图文教程]
-category: AI
+category: GitHub
 draft: false
 pinned: false
 sourceLink: "https://github.com/1186258278/OpenClawChineseTranslation"

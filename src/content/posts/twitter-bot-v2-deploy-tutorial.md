@@ -4,7 +4,7 @@ published: 2026-03-24T22:51:58+08:00
 description: 这篇文章记录如何配置 Twitter Bot V2 的 BOT_TOKEN，通过 Docker 或 Python 启动项目，进入后台设置套餐、支付接口和 TGAPI，并完成群组、用户、Cookie、全量同步与定时更新配置。
 image: "https://pic.sl.al/gdrive/pic/2026-03-24/fileid_1XceZpvXvNAJO1R9oraAOfn_nvx88aJlY_PixPin_2026-03-24_22-14-14.png"
 tags: [Telegram, X, Twitter, 教程]
-category: AI
+category: GitHub
 draft: false
 pinned: false
 sourceLink: "https://github.com/Assute/Twitter-Bot-V2"

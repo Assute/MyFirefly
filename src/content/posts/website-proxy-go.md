@@ -4,7 +4,7 @@ published: 2026-03-23T15:34:31+08:00
 description: 一个基于 Go 的网站中转加速服务，支持固定入口访问、配置文件部署，并直接提供 Alpine Linux 二进制。
 image: "https://pic.sl.al/gdrive/pic/2026-03-23/fileid_17ptfLmAJx7puJKCu5dXtUs5rCj6bFF3R_image.png"
 tags: [Go, 中转加速, 服务器]
-category: 服务器
+category: GitHub
 draft: false
 ---
 

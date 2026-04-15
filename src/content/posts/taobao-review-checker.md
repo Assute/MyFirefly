@@ -4,7 +4,7 @@ published: 2026-03-06T15:27:51+08:00
 description: 一款用于淘宝订单评价批量检查的开源工具，可自动抓取订单、识别真实评价与系统默认好评，并导出结果。
 image: "https://upload-bbs.miyoushe.com/upload/2026/02/27/363490070/1b56592555ccd6a7dc2e3e369bb86a92_61256699560500929.jpeg"
 tags: [软件, 电商]
-category: 电商
+category: GitHub
 draft: false
 ---
 

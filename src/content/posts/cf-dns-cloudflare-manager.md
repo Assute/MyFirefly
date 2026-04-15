@@ -4,7 +4,7 @@ published: 2026-03-16T21:05:23+08:00
 description: 这是一个 Cloudflare DNS 多域名管理面板，支持批量管理 DNS 记录、一键申请 Origin 证书、域名排序、手机端适配和 Docker 一键部署。
 image: "https://pic.sl.al/gdrive/pic/2026-03-16/fileid_1cZpksd8OwcAzj9yPbNyzx8ns8HqZiGY6_%E9%A6%96%E9%A1%B5.png"
 tags: [Cloudflare, DNS, 工具]
-category: 脚本
+category: GitHub
 draft: false
 sourceLink: "https://github.com/Assute/CF-dns"
 ---

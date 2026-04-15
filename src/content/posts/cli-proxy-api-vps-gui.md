@@ -4,7 +4,7 @@ published: 2026-03-07T14:45:00+08:00
 description: 这篇文章记录如何在 Linux VPS 上通过一键安装脚本部署 CLI Proxy API，然后修改 config.yaml 启用 WebUI 管理页面，并通过重启让配置生效。
 image: "https://img.072899.xyz/2025/10/37b12b67193ec67774e2f657e38eefc9.png"
 tags: [AI, 教程]
-category: AI
+category: GitHub
 draft: false
 pinned: false
 sourceLink: "https://help.router-for.me/cn/hands-on/tutorial-6"

@@ -4,7 +4,7 @@ published: 2026-03-16T20:18:12+08:00
 description: 这是一篇 ClawPanel 使用教程，整理了桌面端安装、Linux Web 部署、Docker 部署以及首次配置 OpenClaw 的完整流程，适合想把 OpenClaw 更顺手地管理起来的人。
 image: "https://raw.githubusercontent.com/qingchencloud/clawpanel/main/docs/01.png"
 tags: [AI, OpenClaw, 工具]
-category: AI
+category: GitHub
 draft: false
 pinned: false
 sourceLink: "https://github.com/qingchencloud/clawpanel"
