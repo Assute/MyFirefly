@@ -1,28 +1,29 @@
 ---
-title: AWS Lightsail IP 自动检测、更换与 Cloudflare DNS 更新教程
-published: 2026-04-16T23:48:57+08:00
-description: 这篇文章记录如何部署 lightsail-ip 脚本，实现 AWS Lightsail IP 检测、自动更换、Telegram 通知、Cloudflare DNS 自动更新和定时任务管理。
+title: AWS Lightsail IP 自动检测、更换与多域名 Cloudflare DNS 更新教程
+published: 2026-04-20T22:33:07+08:00
+description: 这篇文章记录如何部署 lightsail-ip 脚本，实现 AWS Lightsail IP 检测、自动更换、Telegram 通知、多个 Cloudflare Token 管理和多域名 DNS 自动更新。
 image: "https://pic.sl.al/gdrive/pic/2026-04-16/fileid_1DTB0Sh_2sGqNF7J-3eQrfWOnVe4yv9CK_image.png"
-tags: [AWS, Lightsail, Linux, 教程]
+tags: [AWS, Lightsail, Cloudflare, Linux, 教程]
 category: 教程
 draft: false
 sourceLink: "https://github.com/Assute/lightsail-ip"
 ---
 
-这篇文章整理 `lightsail-ip` 的完整使用流程，适合直接部署到服务器，用来做：
+这篇文章按最新版 `lightsail-ip` 脚本整理，适合直接部署到服务器，用来完成下面这些事情：
 
-- AWS Lightsail 静态 IP 检测
-- 自动更换 IP
-- Telegram 通知
-- Cloudflare DNS 自动更新
+- AWS Lightsail IP 检测
+- 自动更换静态 IP
+- Telegram 机器人通知
+- Cloudflare A 记录自动更新
+- 一个账号绑定多个域名
+- 多个根域名分别使用不同 Cloudflare Token
 - 定时任务管理
-- 多账号、多区域管理
 
 项目效果图：
 
 ![AWS Lightsail IP 自动检测与定时更换](https://pic.sl.al/gdrive/pic/2026-04-16/fileid_1DTB0Sh_2sGqNF7J-3eQrfWOnVe4yv9CK_image.png)
 
-## 一、项目准备
+## 一、克隆项目
 
 先把项目拉到服务器，例如放到 `/opt/AWS`：
 
@@ -32,7 +33,7 @@ cd /opt/AWS
 cp config.example.json config.json
 ```
 
-后面如果需要更新代码，直接执行：
+后面如果脚本有更新，直接执行：
 
 ```bash
 cd /opt/AWS
@@ -62,7 +63,7 @@ unzip -q awscliv2.zip
 aws --version
 ```
 
-如果服务器是 `aarch64` / `arm64`，把下载地址改成：
+如果服务器架构是 `aarch64` / `arm64`，把下载地址改成：
 
 ```text
 https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip
@@ -85,13 +86,15 @@ apk add --no-cache bash jq curl iputils ca-certificates aws-cli dcron
 config.json
 ```
 
-配置前先复制模板：
+初始化：
 
 ```bash
 cp config.example.json config.json
 ```
 
-配置示例：
+### 推荐配置示例
+
+这是当前推荐写法，支持多个根域名分别使用不同 Token，也支持一个账号绑定多个域名：
 
 ```json
 {
@@ -104,7 +107,16 @@ cp config.example.json config.json
     "chat_id": "YOUR_TELEGRAM_CHAT_ID"
   },
   "cloudflare": {
-    "token": "YOUR_CLOUDFLARE_API_TOKEN"
+    "tokens": [
+      {
+        "root_domain": "example.com",
+        "token": "YOUR_CLOUDFLARE_TOKEN_EXAMPLE_COM"
+      },
+      {
+        "root_domain": "example.net",
+        "token": "YOUR_CLOUDFLARE_TOKEN_EXAMPLE_NET"
+      }
+    ]
   },
   "accounts": [
     {
@@ -115,44 +127,84 @@ cp config.example.json config.json
       "aws_secret_access_key": "YOUR_AWS_SECRET_ACCESS_KEY",
       "ip": "",
       "proxy_url": "",
-      "domain": "",
+      "domains": [
+        "a.example.com",
+        "b.example.com"
+      ],
       "notification_enabled": true
     }
   ]
 }
 ```
 
-### 配置项说明
+### 兼容旧写法
 
-#### `defaults`
+脚本仍兼容旧版单 Token / 单域名配置：
 
-- `ping_times`：`ping` 检测次数
+```json
+{
+  "cloudflare": {
+    "root_domain": "example.com",
+    "token": "YOUR_CLOUDFLARE_API_TOKEN"
+  },
+  "accounts": [
+    {
+      "domain": "a.example.com"
+    }
+  ]
+}
+```
 
-#### `telegram`
+## 四、配置项说明
+
+### `defaults`
+
+- `ping_times`：每次检测的 `ping` 次数
+
+### `telegram`
 
 - `enabled`：是否启用 Telegram 通知
 - `bot_token`：Telegram 机器人 Token
 - `chat_id`：Telegram 接收消息的 Chat ID
 
-#### `cloudflare`
+### `cloudflare`
 
-- `token`：Cloudflare API Token
+推荐使用：
 
-#### `accounts`
+```json
+"cloudflare": {
+  "tokens": [
+    {
+      "root_domain": "example.com",
+      "token": "..."
+    }
+  ]
+}
+```
+
+字段说明：
+
+- `root_domain`：Cloudflare Zone 对应根域名
+- `token`：该根域名使用的 Cloudflare API Token
+
+脚本会根据账号中的域名，自动匹配最合适的 `root_domain`。
+
+### `accounts`
 
 - `name`：账号名称
 - `enabled`：是否启用
-- `region`：Lightsail 区域
+- `region`：AWS 区域
 - `aws_access_key_id`：AWS Access Key
 - `aws_secret_access_key`：AWS Secret Key
 - `ip`：当前记录 IP，可留空
 - `proxy_url`：代理地址，可留空
-- `domain`：要自动更新到 Cloudflare 的域名，可留空
-- `notification_enabled`：当前账号是否发送通知
+- `domains`：要自动更新到 Cloudflare 的域名数组，可留空
+- `domain`：旧版单域名写法，仍兼容
+- `notification_enabled`：当前账号是否发送 Telegram 通知
 
-### 常用地区码
+## 五、常用地区码
 
-`accounts` 里的 `region` 需要填写对应的地区码，常用地区如下：
+`accounts` 里的 `region` 需要填写对应的地区码，点击右侧地区码可直接复制：
 
 <table style="width:100%; border-collapse: collapse; border: 1px solid #d0d7de;">
   <thead>
@@ -217,26 +269,26 @@ cp config.example.json config.json
   </tbody>
 </table>
 
-如果有多个 Lightsail 账号或多个区域，可以继续往 `accounts` 里追加。
-
-如果 `accounts` 里填写了 `domain`，并且全局配置里填写了 `cloudflare.token`，脚本在 IP 变更后会自动更新对应域名的 Cloudflare A 记录。
-
-## 四、赋予执行权限
+## 六、赋予执行权限
 
 ```bash
 chmod +x /opt/AWS/lightsail-ip.sh
 ```
 
-## 五、运行脚本
+## 七、运行模式
 
-进入项目目录后直接执行：
+脚本支持两种运行方式。
+
+### 1）交互模式
+
+直接运行：
 
 ```bash
 cd /opt/AWS
 bash ./lightsail-ip.sh
 ```
 
-运行后会显示菜单：
+会显示：
 
 ```text
 1. 设置/更新定时任务
@@ -244,11 +296,78 @@ bash ./lightsail-ip.sh
 0. 返回
 ```
 
-## 六、设置定时任务
+### 2）执行模式
 
-选择 `1` 之后，输入需要执行的分钟间隔即可。
+- 非交互执行时：自动读取 `config.json` 中所有启用账号并执行
+- 传入账号名时：只执行指定账号
 
-例如输入 `5`，就会生成类似下面的定时任务：
+示例：
+
+```bash
+bash ./lightsail-ip.sh lightsail-kr
+```
+
+## 八、IP 更换逻辑
+
+脚本会先读取账号配置中的 `ip`。
+
+### 情况 1：账号下已有静态 IP
+
+会执行：
+
+1. 检测当前 IP
+2. 释放旧静态 IP
+3. 重新申请同名静态 IP
+4. 绑定到实例
+5. 获取新 IP
+6. 写回 `config.json`
+
+### 情况 2：账号下没有静态 IP
+
+会执行：
+
+1. 读取实例公网 IP 作为初始 IP
+2. 当检测到需要更换时
+3. 自动创建新的静态 IP
+4. 自动绑定到实例
+5. 写回 `config.json`
+
+## 九、Cloudflare DNS 更新逻辑
+
+当账号配置了 `domain` 或 `domains` 时，脚本会自动更新 Cloudflare DNS。
+
+处理流程如下：
+
+1. 根据域名匹配 `cloudflare.tokens` 里最合适的 `root_domain`
+2. 查询对应 Zone
+3. 查询该域名下的 A 记录
+4. 已存在 A 记录时直接更新
+5. 不存在 A 记录时自动创建
+
+例如：
+
+- 域名：`a.example.com`
+- Token 根域：`example.com`
+
+脚本就会自动使用 `example.com` 对应的 Token。
+
+如果一个账号绑定了多个域名，也会逐个处理。
+
+## 十、定时任务
+
+交互运行脚本后，选择：
+
+```text
+1. 设置/更新定时任务
+```
+
+然后输入分钟数，例如：
+
+```text
+5
+```
+
+会生成类似：
 
 ```cron
 # lightsail-ip managed task begin
@@ -263,123 +382,66 @@ PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 crontab -l
 ```
 
-删除脚本生成的定时任务时，重新运行脚本并选择：
-
-```text
-2. 删除定时任务
-```
-
-## 七、运行逻辑
-
-脚本支持两种运行方式：
-
-### 1. 交互模式
-
-直接运行脚本时，会优先进入定时任务菜单。
-
-### 2. 执行模式
-
-- 非交互执行时：自动读取 `config.json` 中所有启用账号并执行
-- 传入账号名时：只执行指定账号
-
-## 八、IP 更换逻辑
-
-脚本会先读取当前账号配置中的 `ip`。
-
-### 情况 1：账号下已有静态 IP
-
-会按原有逻辑执行：
-
-1. 检测当前 IP
-2. 释放旧静态 IP
-3. 重新申请同名静态 IP
-4. 绑定到实例
-5. 读取新 IP
-6. 写回 `config.json`
-
-### 情况 2：账号下没有静态 IP
-
-脚本会自动处理：
-
-1. 读取实例公网 IP 作为初始 IP
-2. 当检测到需要更换时
-3. 自动新建一个静态 IP
-4. 自动绑定到实例
-5. 写回 `config.json`
-
-## 九、手动执行单个账号
-
-如果只想单独执行某一个账号，可以直接带上账号名：
+删除脚本创建的定时任务：
 
 ```bash
-bash ./lightsail-ip.sh lightsail-kr
+bash ./lightsail-ip.sh
 ```
 
-这里的 `lightsail-kr` 对应 `config.json` 里的 `name` 字段。
+选择：
 
-## 十、查看日志
+```text
+2
+```
 
-日志文件默认位置：
+## 十一、日志
+
+日志默认写入：
 
 ```bash
 /opt/AWS/lightsail-ip.log
 ```
 
-实时查看日志：
+查看日志：
 
 ```bash
 tail -f /opt/AWS/lightsail-ip.log
 ```
 
-脚本带了日志大小控制，日志超过 `5MB` 后，下次非交互执行时会自动清空。
+日志规则：
 
-## 十一、Telegram 通知
+- 超过 `5MB`
+- 下次非交互执行前自动清空
+- 不备份旧日志
 
-当脚本检测到 IP 被更换后，会自动向 Telegram 发送通知。
+## 十二、Telegram 通知
 
-需要提前准备好：
+当 IP 被更换后，脚本会发送 Telegram 通知。
 
-- Telegram Bot Token
-- Telegram Chat ID
+需要准备：
 
-然后填到 `config.json` 的 `telegram` 配置里即可。
-
-## 十二、Cloudflare DNS 自动更新
-
-如果账号配置中填写了：
-
-```json
-"domain": "example.com"
-```
-
-并且全局配置中填写了：
-
-```json
-"cloudflare": {
-  "token": "YOUR_CLOUDFLARE_API_TOKEN"
-}
-```
-
-那么 IP 发生变化后，脚本会自动：
-
-- 查找对应 Zone
-- 查找该域名下的 A 记录
-- 更新为新 IP
-- 如果 A 记录不存在则自动创建
+- `bot_token`
+- `chat_id`
 
 ## 十三、安全建议
 
-`config.json` 里会包含敏感信息：
+真实配置中通常包含：
 
 - AWS Access Key
 - AWS Secret Key
 - Telegram Bot Token
 - Cloudflare Token
-- 代理信息
+- 代理账号密码
 
-这些内容不要直接提交到公开仓库。
+不要把真实 `config.json` 提交到 GitHub。
 
-建议权限设置：
+建议：
+
+- 提交前使用模板文件
+- 将 `config.json` 加入 `.gitignore`
+- 服务器上收紧权限
+
+例如：
 
 ```bash
 chmod 700 /opt/AWS
