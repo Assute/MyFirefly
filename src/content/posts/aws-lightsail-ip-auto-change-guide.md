@@ -4,7 +4,7 @@ published: 2026-04-20T22:33:07+08:00
 description: 这篇文章记录如何部署 lightsail-ip 脚本，实现 AWS Lightsail IP 检测、自动更换、Telegram 通知、多个 Cloudflare Token 管理和多域名 DNS 自动更新。
 image: "https://pic.sl.al/gdrive/pic/2026-04-16/fileid_1DTB0Sh_2sGqNF7J-3eQrfWOnVe4yv9CK_image.png"
 tags: [AWS, Lightsail, Cloudflare, Linux, 教程]
-category: 教程
+category: GitHub
 draft: false
 sourceLink: "https://github.com/Assute/lightsail-ip"
 ---
