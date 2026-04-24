@@ -18,16 +18,16 @@ sourceLink: "https://help.router-for.me/cn/hands-on/tutorial-6"
 curl -fsSL https://raw.githubusercontent.com/brokechubb/cliproxyapi-installer/refs/heads/master/cliproxyapi-installer | bash
 ```
 
-安装完成后，先检查服务状态：
+安装完成后，先启动服务：
 
 ```bash
-systemctl --user status cli-proxy-api
+systemctl start cliproxyapi
 ```
 
 如果你希望它开机自动启动，再执行：
 
 ```bash
-systemctl --user enable cli-proxy-api
+systemctl enable cliproxyapi
 ```
 
 ## 二、打开配置文件
@@ -92,19 +92,19 @@ remote-management:
 改完配置后，执行重启：
 
 ```bash
-systemctl --user restart cli-proxy-api
+systemctl restart cliproxyapi
 ```
 
 然后再次确认服务状态：
 
 ```bash
-systemctl --user status cli-proxy-api
+systemctl status cliproxyapi
 ```
 
 如果你想实时看日志，可以执行：
 
 ```bash
-journalctl --user -u cli-proxy-api -f
+journalctl -u cliproxyapi -f
 ```
 
 ## 五、浏览器访问 GUI
@@ -207,7 +207,7 @@ remote-management:
 重新执行一次：
 
 ```bash
-systemctl --user restart cli-proxy-api
+systemctl restart cliproxyapi
 ```
 
 ## 九、最短操作版
@@ -217,7 +217,7 @@ systemctl --user restart cli-proxy-api
 ```bash
 curl -fsSL https://raw.githubusercontent.com/brokechubb/cliproxyapi-installer/refs/heads/master/cliproxyapi-installer | bash
 nano ~/.cli-proxy-api/config.yaml
-systemctl --user restart cli-proxy-api
+systemctl restart cliproxyapi
 ```
 
 然后浏览器打开：
