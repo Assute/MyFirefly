@@ -18,7 +18,13 @@ sourceLink: "https://help.router-for.me/cn/hands-on/tutorial-6"
 curl -fsSL https://raw.githubusercontent.com/brokechubb/cliproxyapi-installer/refs/heads/master/cliproxyapi-installer | bash
 ```
 
-安装完成后，先启动服务：
+安装完成后，先把服务文件复制到 `systemd` 目录：
+
+```bash
+cp /root/cliproxyapi/cliproxyapi.service /etc/systemd/system/
+```
+
+然后再启动服务：
 
 ```bash
 systemctl start cliproxyapi
