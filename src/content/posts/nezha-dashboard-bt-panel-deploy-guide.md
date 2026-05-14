@@ -1,7 +1,7 @@
 ---
 title: 哪吒面板宝塔搭建教程（反代 8008 + WebSocket + gRPC）
 published: 2026-05-11T10:20:00+08:00
-description: 这篇文章记录如何在 Linux 服务器上通过安装脚本部署哪吒监控 Dashboard，再用宝塔站点反向代理 8008 端口，并补齐 WebSocket 与 gRPC 配置。
+description: 这篇文章记录如何在 Linux 服务器上通过安装脚本部署哪吒监控 Dashboard，再用宝塔站点反向代理 8008 端口，补齐 WebSocket 与 gRPC 配置，并添加流量使用进度和流量警报规则。
 image: "https://pic.sl.al/gdrive/pic/2026-05-11/fileid_1K_sJPqt27AvuSSjAskMct1NFocF42Iw2_image.png"
 tags: [哪吒监控, 宝塔, Nginx, Linux, 教程]
 category: GitHub
@@ -339,11 +339,58 @@ setInterval(function() {
         });
 }, 3000);
 </script>
+<script>
+/*
+  window.TrafficScriptConfig = {
+    showTrafficStats: true,    // 显示流量统计, 默认开启
+    insertAfter: true,         // 如果开启总流量卡片, 是否放置在总流量卡片后面, 默认为true
+    interval: 60000,           // 60秒刷新缓存, 单位毫秒, 默认60秒
+    toggleInterval: 5000,      // 4秒切换流量进度条右上角内容, 0秒不切换, 单位毫秒, 默认5秒
+    duration: 500,             // 缓出缓进切换时间, 单位毫秒, 默认500毫秒
+    enableLog: false           // 开启日志, 默认关闭
+  };
+*/
+</script>
+<script src="https://cdn.jsdelivr.net/gh/8730062/installnet@main/jdt.js"></script>
 ```
 
 保存后，面板前台就会按这段脚本显示背景图、插画、副标题和流量进度条。
 
-## 八、在服务里添加 Ping 节点
+## 八、添加流量警报规则
+
+如果前面已经加了自定义代码，前台就能显示流量使用进度。  
+如果还想在流量接近上限时收到通知，可以继续添加流量警报规则。
+
+先打开规则生成器：
+
+<https://wiziscool.github.io/Nezha-Traffic-Alarm-Generator/>
+
+在页面里按自己的周期和流量阈值生成规则即可。
+
+参考图：
+
+![哪吒流量警报规则生成器](https://pic.sl.al/gdrive/pic/2026-05-14/fileid_1jYexC5-9Vn7cb-vAAdYwChZp918Osb-5_image.png)
+
+生成完成后，复制规则内容，回到哪吒后台：
+
+- 打开 `通知`
+- 进入 `警告规则`
+- 添加刚刚生成的流量警报规则
+- 保存后启用
+
+参考图：
+
+![哪吒通知里的警告规则](https://pic.sl.al/gdrive/pic/2026-05-14/fileid_1JrvBbEk9OzKv52XlAU323FoTemMKMZIM_image.png)
+
+![哪吒启用流量警报规则](https://pic.sl.al/gdrive/pic/2026-05-14/fileid_1jXc2F-2bNDp5ILI9SOtD7XKBR4Ho8qrV_image.png)
+
+效果图：
+
+![哪吒流量使用进度效果](https://pic.sl.al/gdrive/pic/2026-05-14/fileid_14LvDHUVmLIBVje0pD5mLJgrJ6L8gxder_image.png)
+
+这样前台既能显示流量使用进度，流量达到设定阈值时也会按通知方式推送提醒。
+
+## 九、在服务里添加 Ping 节点
 
 如果你想让面板显示广东三网的 Ping，可以在服务里添加这几个地址：
 
@@ -353,7 +400,7 @@ setInterval(function() {
 
 添加后，前台就能看到这几个节点的探测结果。
 
-## 九、如果前面套了 CDN
+## 十、如果前面套了 CDN
 
 如果你的域名前面还接了 CDN，那真实 IP 头不一定还是 `$remote_addr`。
 
@@ -373,6 +420,6 @@ real_ip_header CF-Connecting-IP;
 
 如果你现在是 Nginx 直接对外，没有再套 CDN，那按你现在这版配置先跑就可以。
 
-## 十、完成
+## 十一、完成
 
 到这里，宝塔搭建哪吒面板就完成了。
